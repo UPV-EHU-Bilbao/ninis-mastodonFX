@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-15T14:19:50.736Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="NL-nCx9nTlPC8oHUTHBe" version="20.8.22" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-15T14:21:53.766Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="NDUUP0Ms-tdMB6zPF9v4" version="20.8.22" type="github">
   <diagram name="Página-1" id="5GbDUQDpDSjfHrGf50Re">
     <mxGraphModel dx="1156" dy="1754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -49,10 +49,10 @@
         <mxCell id="zPWY2V33I2jb1bupJwRj-17" value="Some text with url and emojis" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fontColor=#000000;fillColor=#66FF66;gradientColor=none;fillStyle=hatch;strokeColor=#66FF66;perimeterSpacing=2;" vertex="1" parent="1">
           <mxGeometry x="260" y="-529.75" width="190" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="zPWY2V33I2jb1bupJwRj-22" value="&lt;font color=&quot;#000000&quot;&gt;Ane Philips&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" vertex="1" parent="1">
+        <mxCell id="zPWY2V33I2jb1bupJwRj-22" value="&lt;font color=&quot;#000000&quot;&gt;Joana Dobs&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="260" y="-279.75" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="zPWY2V33I2jb1bupJwRj-23" value="10 min ago" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" vertex="1" parent="1">
+        <mxCell id="zPWY2V33I2jb1bupJwRj-23" value="10 days ago" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="380" y="-279.75" width="70" height="30" as="geometry" />
         </mxCell>
         <mxCell id="zPWY2V33I2jb1bupJwRj-25" value="Some text&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;fillStyle=hatch;strokeColor=#6c8ebf;perimeterSpacing=3;" vertex="1" parent="1">
@@ -73,10 +73,10 @@
         <mxCell id="zPWY2V33I2jb1bupJwRj-46" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.user;" vertex="1" parent="1">
           <mxGeometry x="210" y="-149.75" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="zPWY2V33I2jb1bupJwRj-47" value="&lt;font color=&quot;#000000&quot;&gt;Ane Philips&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" vertex="1" parent="1">
+        <mxCell id="zPWY2V33I2jb1bupJwRj-47" value="&lt;font color=&quot;#000000&quot;&gt;Karen Polska&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="255" y="-189.75" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="zPWY2V33I2jb1bupJwRj-48" value="10 min ago" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" vertex="1" parent="1">
+        <mxCell id="zPWY2V33I2jb1bupJwRj-48" value="20 days ago" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="380" y="-189.75" width="70" height="30" as="geometry" />
         </mxCell>
         <mxCell id="zPWY2V33I2jb1bupJwRj-49" value="Some text&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#e1d5e7;fillStyle=hatch;strokeColor=#9673a6;perimeterSpacing=3;" vertex="1" parent="1">
@@ -84,9 +84,6 @@
         </mxCell>
         <mxCell id="zPWY2V33I2jb1bupJwRj-50" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.user;" vertex="1" parent="1">
           <mxGeometry x="210" y="-329.75" width="40" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="zPWY2V33I2jb1bupJwRj-51" value="&lt;font color=&quot;#000000&quot;&gt;Ane Philips&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="255" y="-369.75" width="80" height="30" as="geometry" />
         </mxCell>
         <mxCell id="zPWY2V33I2jb1bupJwRj-52" value="6 days ago" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="380" y="-369.75" width="70" height="30" as="geometry" />
@@ -129,6 +126,9 @@
         </mxCell>
         <mxCell id="zPWY2V33I2jb1bupJwRj-66" value="Some text and emojis&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;fillStyle=hatch;strokeColor=#6c8ebf;perimeterSpacing=3;" vertex="1" parent="1">
           <mxGeometry x="520" y="-130" width="180" height="38.75" as="geometry" />
+        </mxCell>
+        <mxCell id="zPWY2V33I2jb1bupJwRj-67" value="&lt;font color=&quot;#000000&quot;&gt;Joe Baggins&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="255" y="-370" width="80" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
