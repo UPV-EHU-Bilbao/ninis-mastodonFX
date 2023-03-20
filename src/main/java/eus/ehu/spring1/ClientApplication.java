@@ -13,7 +13,7 @@ public class ClientApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ClientApplication.class.getResource("rest-client-for-mastodon-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ClientApplication.class.getResource("showtoot.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Mastodon Client");
         stage.setScene(scene);
