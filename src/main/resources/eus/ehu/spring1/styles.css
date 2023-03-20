@@ -1,0 +1,24 @@
+.toots {
+    -fx-background-color: lightgreen;
+    -fx-background-radius: 25;
+}
+
+
+Button:hover {
+    /*
+        highlight button
+     */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+
+}
+
+.following {
+    -fx-background-color: lightpink;
+    -fx-background-radius: 25;
+}
+
+.followers {
+    -fx-background-color: lightblue;
+    -fx-background-radius: 25;
+}
+
