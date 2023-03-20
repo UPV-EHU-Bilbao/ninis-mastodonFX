@@ -1,4 +1,4 @@
-module eus.ehu.Spring1 {
+module eus.ehu.sprint1 {
     requires javafx.controls;
     requires javafx.fxml;
 

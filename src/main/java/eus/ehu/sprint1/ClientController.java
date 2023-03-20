@@ -13,7 +13,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientController {
+public class ClientController implements FxController {
 
    @FXML
     private WebView content;
