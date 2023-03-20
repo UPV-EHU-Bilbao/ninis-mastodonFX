@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="following" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eus.ehu.borderpanedemo.FollowingController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="following" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eus.ehu.sprint1.FollowingController">
    <children>
       <Label layoutX="257.0" layoutY="38.0" text="Following" />
    </children>

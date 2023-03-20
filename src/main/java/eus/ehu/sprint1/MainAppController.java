@@ -50,7 +50,7 @@ public class MainAppController {
     void initialize() {
         followingWin = load("following.fxml");
         followersWin = load("followers.fxml");
-        tootsWin = load("toots.fxml");
+        tootsWin = load("showtoot.fxml");
 
         showScene("Toots");
     }
