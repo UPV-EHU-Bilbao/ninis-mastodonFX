@@ -1,5 +1,5 @@
 .toots {
-    -fx-background-color: lightgreen;
+    -fx-background-color: darkgray;
     -fx-background-radius: 25;
 }
 
@@ -13,12 +13,12 @@ Button:hover {
 }
 
 .following {
-    -fx-background-color: lightpink;
+    -fx-background-color: black;
     -fx-background-radius: 25;
 }
 
 .followers {
-    -fx-background-color: lightblue;
+    -fx-background-color: lightpink;
     -fx-background-radius: 25;
 }
 
