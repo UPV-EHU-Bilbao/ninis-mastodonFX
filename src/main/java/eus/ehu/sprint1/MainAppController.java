@@ -1,4 +1,4 @@
-package eus.ehu.spring1;
+package eus.ehu.sprint1;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

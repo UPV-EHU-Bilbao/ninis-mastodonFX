@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>eus.ehu</groupId>
-    <artifactId>Spring1</artifactId>
+    <artifactId>Sprint1</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>BUM4</name>
 
@@ -79,7 +79,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>eus.ehu.bum4/eus.ehu.spring1.ClientApplication</mainClass>
+                            <mainClass>eus.ehu.bum4/eus.ehu.sprint1.ClientApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
