@@ -1,4 +1,4 @@
-package eus.ehu.sprint1.Domain;
+package eus.ehu.sprint1;
 
 
 import eus.ehu.sprint1.FxController;
