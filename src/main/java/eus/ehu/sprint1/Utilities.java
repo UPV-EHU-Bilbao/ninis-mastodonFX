@@ -5,7 +5,9 @@ import java.io.IOException;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
+import social.bigbone.MastodonClient;
+import social.bigbone.api.Scope;
+import social.bigbone.api.exception.BigBoneRequestException;
 
 
 public class Utilities {
@@ -38,5 +40,6 @@ public class Utilities {
         return result;
 
     }
+
 
 }

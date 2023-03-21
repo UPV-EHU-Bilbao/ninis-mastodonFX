@@ -63,6 +63,7 @@ public class ClientController implements FxController {
         list = gson.fromJson(jsonArray.getAsJsonArray(), statusList);
 
 
+
         index = 0;
         date.setText(list.get(index).getCreatedAt());
         update(0);

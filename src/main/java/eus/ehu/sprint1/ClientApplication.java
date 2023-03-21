@@ -5,6 +5,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import social.bigbone.MastodonClient;
+import social.bigbone.MastodonRequest;
+import social.bigbone.api.entity.Status;
 
 import java.io.IOException;
 
@@ -24,6 +27,7 @@ public class ClientApplication extends Application {
 
     public static void main(String[] args) {
         launch();
+
 
     }
 
