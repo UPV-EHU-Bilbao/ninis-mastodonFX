@@ -12,7 +12,13 @@ import javafx.scene.control.CheckBox;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
+import social.bigbone.MastodonClient;
+import social.bigbone.api.Pageable;
+import social.bigbone.api.Range;
 import social.bigbone.api.entity.Status;
+import social.bigbone.api.entity.Token;
+import social.bigbone.api.exception.BigBoneRequestException;
 
 public class ClientController implements FxController {
     private List<Status> list;
@@ -50,7 +56,7 @@ public class ClientController implements FxController {
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws BigBoneRequestException {
 
 
         String id = "109897213456794839";
@@ -61,6 +67,7 @@ public class ClientController implements FxController {
         Type statusList = new TypeToken<ArrayList<Status>>() {
         }.getType();
         list = gson.fromJson(jsonArray.getAsJsonArray(), statusList);
+
 
 
 
