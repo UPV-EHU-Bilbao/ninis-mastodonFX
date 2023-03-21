@@ -6,8 +6,9 @@ module eus.ehu.sprint1 {
     requires com.google.gson;
     requires okhttp3;
     requires javafx.web;
+    requires bigbone;
 
     exports eus.ehu.sprint1;
-    opens eus.ehu.sprint1.Domain to com.google.gson;
+
     opens eus.ehu.sprint1 to com.google.gson, javafx.fxml;
 }
