@@ -14,16 +14,14 @@
     <left>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
 
-            <children>
             <ImageView fitHeight="70.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Mastodon_logotype_(simple)_new_hue.svg.png" />
-               </image>
+                <image>
+                    <Image url="@Mastodon_logotype_(simple)_new_hue.svg.png"/>
+                </image>
             </ImageView>
-                <Button mnemonicParsing="false" onAction="#actionMyToots" styleClass="toots" text="My Toots" />
-                <Button mnemonicParsing="false" onAction="#actionFollowing" styleClass="following" text="Following" />
-                <Button mnemonicParsing="false" onAction="#actionFollowers" styleClass="followers" text="Followers" />
-            </children>
+            <Button mnemonicParsing="false" onAction="#actionMyToots" styleClass="toots" text="My Toots"/>
+            <Button mnemonicParsing="false" onAction="#actionFollowing" styleClass="following" text="Following"/>
+            <Button mnemonicParsing="false" onAction="#actionFollowers" styleClass="followers" text="Followers"/>
         </VBox>
     </left>
 </BorderPane>
