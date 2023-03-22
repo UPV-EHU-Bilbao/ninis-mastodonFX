@@ -3,13 +3,12 @@ package eus.ehu.sprint1;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import java.io.IOException;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import social.bigbone.MastodonClient;
 import social.bigbone.MastodonRequest;
 import social.bigbone.api.entity.Status;
-
-import java.io.IOException;
 
 
 public class ClientApplication extends Application {
