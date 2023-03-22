@@ -67,8 +67,15 @@ public class ClientController implements FxController {
         Type statusList = new TypeToken<ArrayList<Status>>() {
         }.getType();
         list = gson.fromJson(jsonArray.getAsJsonArray(), statusList);
+        /*
+        MastodonClient client = new MastodonClient.Builder().accessToken("TOKEN").build();
+        Pageable<Status> timeline = client.timelines().getHomeTimeline(new Range(null, null, 5)).execute();
 
+        timeline.getPart().forEach(status -> {
+            System.out.println(status.getContent());
+        });
 
+         */
 
 
         index = 0;
