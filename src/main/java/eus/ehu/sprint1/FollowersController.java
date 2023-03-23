@@ -30,16 +30,9 @@ public class FollowersController {
 
     @FXML
     void initialize() throws BigBoneRequestException {
-        String instance = "mastodon.social";
-
-        MastodonClient client = new MastodonClient.Builder(instance).accessToken(System.getenv("TOKEN")).build();
-
-        String accountID = client.accounts().verifyCredentials().execute().getId();
-
-        List<Account> followers = client.accounts().getFollowers(accountID).execute().getPart();
-
+        BigBone bigBone = new BigBone();
+        List<Account> followers = bigBone.getFollowers();
         followers.forEach(follower -> followersArea.appendText(follower.getUsername() + "\r\n"));
-
     }
 
 }

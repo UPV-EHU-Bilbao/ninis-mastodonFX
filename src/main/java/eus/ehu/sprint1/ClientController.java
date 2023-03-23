@@ -22,6 +22,7 @@ import social.bigbone.api.exception.BigBoneRequestException;
 
 public class ClientController implements FxController {
     private List<Status> list;
+    private BigBone bigBone;
 
     @FXML
     private WebView content;
@@ -40,24 +41,22 @@ public class ClientController implements FxController {
     @FXML
     void nextoot(ActionEvent event) {
         if (index < list.size() - 1) {
-            update(index + 1);
-
             index++;
+            update(index);
         }
     }
 
     @FXML
     void previoustoot(ActionEvent event) {
         if (index > 0) {
-            update(index - 1);
             index--;
+            update(index);
         }
-
     }
 
     @FXML
     void initialize() throws BigBoneRequestException {
-
+        /*
 
         String id = "109897213456794839";
         String body = Utilities.request("accounts/" + id + "/statuses");
@@ -67,7 +66,7 @@ public class ClientController implements FxController {
         Type statusList = new TypeToken<ArrayList<Status>>() {
         }.getType();
         list = gson.fromJson(jsonArray.getAsJsonArray(), statusList);
-        /*
+
         MastodonClient client = new MastodonClient.Builder().accessToken("TOKEN").build();
         Pageable<Status> timeline = client.timelines().getHomeTimeline(new Range(null, null, 5)).execute();
 
@@ -76,6 +75,9 @@ public class ClientController implements FxController {
         });
 
          */
+
+        BigBone bigBone = new BigBone();
+        list = bigBone.getToots();
 
 
         index = 0;
@@ -98,7 +100,6 @@ public class ClientController implements FxController {
             user.setText(list.get(index).getReblog().getAccount().getUsername());
             content.getEngine().loadContent(list.get(index).getReblog().getContent());
             boost.setSelected(true);
-
 
         }
 
