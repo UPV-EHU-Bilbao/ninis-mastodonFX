@@ -27,7 +27,7 @@
             <String fx:value="btn-sm" />
          </styleClass></Button>
       <CheckBox fx:id="boost" layoutX="442.0" layoutY="64.0" mnemonicParsing="false" text="Boosted" />
-      <WebView fx:id="content" layoutX="206.0" layoutY="139.0" prefHeight="159.0" prefWidth="321.0" />
+      <WebView fx:id="webView" layoutX="206.0" layoutY="139.0" prefHeight="159.0" prefWidth="321.0" />
 
    </children>
    <cursor>

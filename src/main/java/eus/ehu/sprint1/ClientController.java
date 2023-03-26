@@ -1,8 +1,6 @@
 package eus.ehu.sprint1;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.reflect.TypeToken;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -25,7 +23,7 @@ public class ClientController implements FxController {
     private BigBone bigBone;
 
     @FXML
-    private WebView content;
+    private WebView webView;
 
     @FXML
     private TextField date;
@@ -94,11 +92,13 @@ public class ClientController implements FxController {
         if (list.get(index).getReblog() == null) {
             user.setText(list.get(index).getAccount().getUsername());
             boost.setSelected(false);
-            content.getEngine().loadContent(list.get(index).getContent());
+            webView.getEngine().getLoadWorker().stateProperty().addListener(new HyperLinkRedirectListener(webView));
+            webView.getEngine().loadContent(list.get(index).getContent());
 
         } else {
             user.setText(list.get(index).getReblog().getAccount().getUsername());
-            content.getEngine().loadContent(list.get(index).getReblog().getContent());
+            webView.getEngine().getLoadWorker().stateProperty().addListener(new HyperLinkRedirectListener(webView));
+            webView.getEngine().loadContent(list.get(index).getReblog().getContent());
             boost.setSelected(true);
 
         }

@@ -7,6 +7,10 @@ module eus.ehu.sprint1 {
     requires okhttp3;
     requires javafx.web;
     requires bigbone;
+    requires jdk.xml.dom;
+    requires java.datatransfer;
+    requires java.desktop;
+
 
     exports eus.ehu.sprint1;
 
