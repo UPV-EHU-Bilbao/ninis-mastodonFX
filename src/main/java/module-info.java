@@ -11,7 +11,6 @@ module eus.ehu.sprint1 {
     requires java.datatransfer;
     requires java.desktop;
 
-
     exports eus.ehu.sprint1;
 
     opens eus.ehu.sprint1 to com.google.gson, javafx.fxml;

@@ -1,4 +1,5 @@
 package eus.ehu.sprint1;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
@@ -71,7 +72,7 @@ public class HyperLinkRedirectListener implements ChangeListener<Worker.State>, 
         } catch (Throwable e)
         {
             // LOGGER.error("Error on opening link '{}' in system browser.", url);
+
         }
     }
 }
-
