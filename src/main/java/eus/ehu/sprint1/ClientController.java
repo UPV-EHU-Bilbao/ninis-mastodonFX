@@ -1,28 +1,22 @@
 package eus.ehu.sprint1;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.reflect.TypeToken;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
 import javafx.scene.control.CheckBox;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+
 import java.util.List;
 
-import social.bigbone.MastodonClient;
-import social.bigbone.api.Pageable;
-import social.bigbone.api.Range;
+
 import social.bigbone.api.entity.Status;
-import social.bigbone.api.entity.Token;
+
 import social.bigbone.api.exception.BigBoneRequestException;
 
 public class ClientController implements FxController {
     private List<Status> list;
-    private BigBone bigBone;
 
     @FXML
     private WebView content;

@@ -4,17 +4,13 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import javafx.animation.Timeline;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
-import social.bigbone.MastodonClient;
-import social.bigbone.MastodonRequest;
-import social.bigbone.api.Pageable;
-import social.bigbone.api.Scope;
+
 import social.bigbone.api.entity.Account;
-import social.bigbone.api.entity.Application;
-import social.bigbone.api.entity.MastodonList;
+
 import social.bigbone.api.exception.BigBoneRequestException;
 
 public class FollowingController {
