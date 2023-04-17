@@ -1,7 +1,4 @@
-.toots {
-    -fx-background-color: darkgray;
-    -fx-background-radius: 25;
-}
+
 
 
 Button:hover {
@@ -12,13 +9,33 @@ Button:hover {
 
 }
 
+.toots{
+    -fx-background-color: #fefffe;
+
+}
+
 .following {
-    -fx-background-color: black;
-    -fx-background-radius: 25;
+    -fx-background-color: #ffffff;
+
 }
 
 .followers {
-    -fx-background-color: lightpink;
+    -fx-background-color: #ffffff;
+
+}
+
+.toots_button {
+    -fx-background-color: #2ce112;
+    -fx-background-radius: 25;
+}
+
+.following_button {
+    -fx-background-color: #f60707;
+    -fx-background-radius: 25;
+}
+
+.followers_button {
+    -fx-background-color: #122fe3;
     -fx-background-radius: 25;
 }
 

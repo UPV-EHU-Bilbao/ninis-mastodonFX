@@ -19,9 +19,9 @@
                     <Image url="@Mastodon_logotype_(simple)_new_hue.svg.png"/>
                 </image>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#actionMyToots" styleClass="toots" text="My Toots"/>
-            <Button mnemonicParsing="false" onAction="#actionFollowing" styleClass="following" text="Following"/>
-            <Button mnemonicParsing="false" onAction="#actionFollowers" styleClass="followers" text="Followers"/>
+            <Button mnemonicParsing="false" onAction="#actionMyToots" styleClass="toots_button" text="My Toots"/>
+            <Button mnemonicParsing="false" onAction="#actionFollowing" styleClass="following_button" text="Following"/>
+            <Button mnemonicParsing="false" onAction="#actionFollowers" styleClass="followers_button" text="Followers"/>
         </VBox>
     </left>
 </BorderPane>
