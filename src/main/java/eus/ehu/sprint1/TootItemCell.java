@@ -50,11 +50,12 @@ public class TootItemCell {
 
     public TootItemCell(Toot toot) {
         if (loader == null) {
-            loader = new FXMLLoader(getClass().getResource("eus/ehu/sprint1/toot.fxml"));
+            loader = new FXMLLoader(getClass().getResource("toot.fxml"));
             loader.setController(this);
             try {
                 loader.load();
             } catch (Exception e) {
+                System.out.println("listItem is null in constructor");
                 e.printStackTrace();
             }
         }
@@ -64,6 +65,13 @@ public class TootItemCell {
         tootText.getEngine().getLoadWorker().stateProperty().addListener(new HyperLinkRedirectListener(tootText));
         boost.setSelected(toot.isBoost());
         boost.setDisable(true);
+
+        if (listItem == null) {
+            System.out.println("listItem is null in constructor");
+        }
+        else {
+            System.out.println("listItem is not null in constructor");
+        }
     }
 
     public AnchorPane getAnchorPane() {

@@ -6,7 +6,7 @@
 <?import javafx.scene.web.WebView?>
 
 
-<AnchorPane fx:id="listItem" prefHeight="210.0" prefWidth="446.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eus.ehu.sprint1.TootItemCell">
+<AnchorPane fx:id="listItem" prefHeight="210.0" prefWidth="446.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
       <Label fx:id="username" layoutX="14.0" layoutY="22.0" prefHeight="17.0" prefWidth="142.0" text="usename" />
       <Label fx:id="date" layoutX="184.0" layoutY="22.0" prefHeight="17.0" prefWidth="153.0" text="date" />

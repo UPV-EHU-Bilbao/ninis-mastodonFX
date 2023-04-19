@@ -9,17 +9,23 @@ public class Toot {
     private boolean boost;
 
     public Toot(Status toot) {
-        this.date = toot.getCreatedAt();
+        this.date = splitDate(toot.getCreatedAt());
         if (toot.getReblog() == null) {
             this.username =toot.getAccount().getUsername();
             this.boost = false;
-            this.tootText = tootText;toot.getContent();
+            this.tootText = toot.getContent();
         } else {
             this.username = toot.getReblog().getAccount().getUsername();
             this.tootText = toot.getReblog().getContent();
             this.boost = true;
             //tootText.getEngine().getLoadWorker().stateProperty().addListener(new HyperLinkRedirectListener(tootText));
         }
+    }
+
+    public String splitDate(String date){
+        String[] parts = date.split("T");
+
+        return parts[0] + " " + parts[1].substring(0, 8);
     }
 
     public String getUsername() {
