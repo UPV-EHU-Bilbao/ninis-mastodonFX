@@ -35,7 +35,7 @@ public class MainAppController {
 
     @FXML
     void actionMyToots(ActionEvent event) {
-        showScene("Toots");
+        showScene("Toot");
     }
 
     @FXML
@@ -52,14 +52,14 @@ public class MainAppController {
         followersWin = load("followers.fxml");
         tootsWin = load("showtoot.fxml");
 
-        showScene("Toots");
+        showScene("Toot");
     }
 
     private void showScene(String scene) {
         switch (scene) {
             case "Following" -> mainWrapper.setCenter(followingWin.ui);
             case "Followers" -> mainWrapper.setCenter(followersWin.ui);
-            case "Toots" -> mainWrapper.setCenter(tootsWin.ui);
+            case "Toot" -> mainWrapper.setCenter(tootsWin.ui);
         }
     }
 

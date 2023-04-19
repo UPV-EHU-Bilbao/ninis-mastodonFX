@@ -2,6 +2,8 @@ package eus.ehu.sprint1;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import eus.ehu.sprint1.Domain.Toot;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -11,6 +13,12 @@ import javafx.scene.web.WebView;
 import social.bigbone.api.entity.Status;
 
 public class TootItemCell {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
 
     private FXMLLoader loader;
 
@@ -29,33 +37,41 @@ public class TootItemCell {
     @FXML
     private Label username = new Label();
 
-    public TootItemCell(Status toot) {
+    //create inizialize method
+    @FXML
+    void initialize() {
+        assert boost != null : "fx:id=\"boost\" was not injected: check your FXML file 'toot.fxml'.";
+        assert date != null : "fx:id=\"date\" was not injected: check your FXML file 'toot.fxml'.";
+        assert listItem != null : "fx:id=\"listItem\" was not injected: check your FXML file 'toot.fxml'.";
+        assert tootText != null : "fx:id=\"tootText\" was not injected: check your FXML file 'toot.fxml'.";
+        assert username != null : "fx:id=\"username\" was not injected: check your FXML file 'toot.fxml'.";
+    }
+
+
+    public TootItemCell(Toot toot) {
         if (loader == null) {
-            loader = new FXMLLoader(getClass().getResource("toot.fxml"));
+            loader = new FXMLLoader(getClass().getResource("eus/ehu/sprint1/toot.fxml"));
             loader.setController(this);
             try {
                 loader.load();
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         }
-
-        date.setText(toot.getCreatedAt());
-        if (toot.getReblog() == null) {
-            username.setText(toot.getAccount().getUsername());
-            boost.setSelected(false);
-            tootText.getEngine().loadContent(toot.getContent());
-            tootText.getEngine().getLoadWorker().stateProperty().addListener(new HyperLinkRedirectListener(tootText));
-        } else {
-            username.setText(toot.getReblog().getAccount().getUsername());
-            tootText.getEngine().loadContent(toot.getReblog().getContent());
-            boost.setSelected(true);
-            tootText.getEngine().getLoadWorker().stateProperty().addListener(new HyperLinkRedirectListener(tootText));
-        }
+        date.setText(toot.getDate());
+        username.setText(toot.getUsername());
+        tootText.getEngine().loadContent(toot.getTootText());
+        tootText.getEngine().getLoadWorker().stateProperty().addListener(new HyperLinkRedirectListener(tootText));
+        boost.setSelected(toot.isBoost());
         boost.setDisable(true);
     }
 
     public AnchorPane getAnchorPane() {
+        if (listItem == null)
+        {
+            throw new NullPointerException("listItem returned null");
+        }
+
         return listItem;
     }
 

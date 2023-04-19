@@ -1,4 +1,4 @@
-package eus.ehu.sprint1;
+package eus.ehu.sprint1.Domain;
 
 import javafx.beans.InvalidationListener;
 import javafx.collections.ListChangeListener;
@@ -22,6 +22,10 @@ public class Utils {
         for (S s : sourceList)
         {
             T t = mapper.apply(s);
+            if (t == null)
+            {
+                throw new NullPointerException("Mapper returned null");
+            }
             targetList.add(t);
             sourceToTargetMap.put(s, t);
         }

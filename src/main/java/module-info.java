@@ -14,4 +14,6 @@ module eus.ehu.sprint1 {
     exports eus.ehu.sprint1;
 
     opens eus.ehu.sprint1 to com.google.gson, javafx.fxml;
+    exports eus.ehu.sprint1.Domain;
+    opens eus.ehu.sprint1.Domain to com.google.gson, javafx.fxml;
 }
