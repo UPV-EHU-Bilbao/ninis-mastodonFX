@@ -8,17 +8,20 @@ public class Toot {
     private String tootText;
     private boolean boost;
 
+    private String avatar;
+
     public Toot(Status toot) {
         this.date = splitDate(toot.getCreatedAt());
         if (toot.getReblog() == null) {
             this.username =toot.getAccount().getUsername();
             this.boost = false;
             this.tootText = toot.getContent();
+            this.avatar = toot.getAccount().getAvatar();
         } else {
             this.username = toot.getReblog().getAccount().getUsername();
             this.tootText = toot.getReblog().getContent();
             this.boost = true;
-            //tootText.getEngine().getLoadWorker().stateProperty().addListener(new HyperLinkRedirectListener(tootText));
+            this.avatar = toot.getReblog().getAccount().getAvatar();
         }
     }
 
@@ -43,4 +46,9 @@ public class Toot {
     public boolean isBoost() {
         return boost;
     }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
 }

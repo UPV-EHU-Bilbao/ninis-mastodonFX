@@ -36,4 +36,9 @@ public class BigBone {
         return  client.accounts().getStatuses(accountID).execute().getPart();
     }
 
+    //get user avatar
+    public String getAvatar() throws BigBoneRequestException {
+        return client.accounts().getAccount(accountID).execute().getAvatar();
+    }
+
 }

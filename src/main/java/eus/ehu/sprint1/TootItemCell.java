@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebView;
 import social.bigbone.api.entity.Status;
@@ -27,6 +29,9 @@ public class TootItemCell {
 
     @FXML
     private RadioButton boost = new RadioButton();
+
+    @FXML
+    private ImageView image;
 
     @FXML
     private Label date = new Label();
@@ -55,7 +60,6 @@ public class TootItemCell {
             try {
                 loader.load();
             } catch (Exception e) {
-                System.out.println("listItem is null in constructor");
                 e.printStackTrace();
             }
         }
@@ -64,14 +68,10 @@ public class TootItemCell {
         tootText.getEngine().loadContent(toot.getTootText());
         tootText.getEngine().getLoadWorker().stateProperty().addListener(new HyperLinkRedirectListener(tootText));
         boost.setSelected(toot.isBoost());
+        image.setImage(new Image(toot.getAvatar()));
+        System.out.println(toot.getAvatar());
         boost.setDisable(true);
 
-        if (listItem == null) {
-            System.out.println("listItem is null in constructor");
-        }
-        else {
-            System.out.println("listItem is not null in constructor");
-        }
     }
 
     public AnchorPane getAnchorPane() {
