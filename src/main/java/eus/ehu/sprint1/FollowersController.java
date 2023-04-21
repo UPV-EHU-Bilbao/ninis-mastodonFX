@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
+import eus.ehu.sprint1.Domain.BigBone;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 

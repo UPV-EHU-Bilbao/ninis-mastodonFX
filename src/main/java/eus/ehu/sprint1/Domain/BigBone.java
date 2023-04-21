@@ -1,4 +1,4 @@
-package eus.ehu.sprint1;
+package eus.ehu.sprint1.Domain;
 
 import social.bigbone.MastodonClient;
 import social.bigbone.api.entity.Account;
@@ -34,6 +34,11 @@ public class BigBone {
 
     public List<Status> getToots() throws BigBoneRequestException {
         return  client.accounts().getStatuses(accountID).execute().getPart();
+    }
+
+    //get user avatar
+    public String getAvatar() throws BigBoneRequestException {
+        return client.accounts().getAccount(accountID).execute().getAvatar();
     }
 
 }
