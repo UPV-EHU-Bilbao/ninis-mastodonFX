@@ -1,4 +1,4 @@
-package eus.ehu.sprint1.configuration;
+package eus.ehu.sprint2.configuration;
 
 import java.io.FileInputStream;
 import java.io.IOException;

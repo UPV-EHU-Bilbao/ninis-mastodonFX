@@ -1,4 +1,4 @@
-package eus.ehu.sprint1.Domain;
+package eus.ehu.sprint2.Domain;
 
 import javafx.beans.InvalidationListener;
 import javafx.collections.ListChangeListener;

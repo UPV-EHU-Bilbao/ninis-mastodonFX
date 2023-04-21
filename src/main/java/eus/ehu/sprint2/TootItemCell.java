@@ -1,9 +1,9 @@
-package eus.ehu.sprint1;
+package eus.ehu.sprint2;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import eus.ehu.sprint1.Domain.Toot;
+import eus.ehu.sprint2.Domain.Toot;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -12,7 +12,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebView;
-import social.bigbone.api.entity.Status;
 
 public class TootItemCell {
 
