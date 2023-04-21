@@ -1,4 +1,4 @@
-package eus.ehu.sprint1;
+package eus.ehu.sprint1.ui;
 
 
 import javafx.application.Application;
@@ -9,11 +9,11 @@ import javafx.stage.Stage;
 
 
 
-public class ClientApplication extends Application {
+public class AppLauncher extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ClientApplication.class.getResource("main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("main.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Mastodon Client");
         stage.setScene(scene);

@@ -1,4 +1,4 @@
-package eus.ehu.sprint1;
+package eus.ehu.sprint1.controllers;
 
 import java.net.URL;
 import java.util.List;
@@ -14,7 +14,7 @@ import social.bigbone.api.entity.Account;
 
 import social.bigbone.api.exception.BigBoneRequestException;
 
-public class FollowersController {
+public class FollowingController {
 
     @FXML
     private ResourceBundle resources;
@@ -23,13 +23,13 @@ public class FollowersController {
     private URL location;
 
     @FXML
-    private TextArea followersArea;
+    private TextArea followingArea;
 
     @FXML
     void initialize() throws BigBoneRequestException {
         BigBone bigBone = new BigBone();
-        List<Account> followers = bigBone.getFollowers();
-        followers.forEach(follower -> followersArea.appendText(follower.getUsername() + "\r\n"));
+        List<Account> following = bigBone.getFollowing();
+        following.forEach(followings -> followingArea.appendText(followings.getUsername() + "\r\n"));
     }
 
 }

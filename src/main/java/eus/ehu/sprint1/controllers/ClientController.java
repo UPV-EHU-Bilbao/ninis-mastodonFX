@@ -1,10 +1,11 @@
-package eus.ehu.sprint1;
+package eus.ehu.sprint1.controllers;
 
 import java.net.URL;
 import java.util.*;
 
 import eus.ehu.sprint1.Domain.BigBone;
 import eus.ehu.sprint1.Domain.Toot;
+import eus.ehu.sprint1.TootItemCell;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

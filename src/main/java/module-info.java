@@ -10,10 +10,15 @@ module eus.ehu.sprint1 {
     requires jdk.xml.dom;
     requires java.datatransfer;
     requires java.desktop;
+    requires java.sql;
 
     exports eus.ehu.sprint1;
 
     opens eus.ehu.sprint1 to com.google.gson, javafx.fxml;
     exports eus.ehu.sprint1.Domain;
     opens eus.ehu.sprint1.Domain to com.google.gson, javafx.fxml;
+    exports eus.ehu.sprint1.controllers;
+    opens eus.ehu.sprint1.controllers to com.google.gson, javafx.fxml;
+    exports eus.ehu.sprint1.ui;
+    opens eus.ehu.sprint1.ui to com.google.gson, javafx.fxml;
 }
