@@ -22,7 +22,7 @@ public class MainAppController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Parent ui = loader.load();
-            //FxController controller = loader.getController();
+            FxController controller = loader.getController();
 
             Window window = new Window();
             //window.controller = controller;

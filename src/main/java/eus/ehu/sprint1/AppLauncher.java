@@ -1,4 +1,4 @@
-package eus.ehu.sprint1.ui;
+package eus.ehu.sprint1;
 
 
 import javafx.application.Application;
