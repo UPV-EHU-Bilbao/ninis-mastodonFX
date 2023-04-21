@@ -1,9 +1,9 @@
-package eus.ehu.sprint2;
+package eus.ehu.sprint1;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import eus.ehu.sprint2.Domain.Toot;
+import eus.ehu.sprint1.Domain.Toot;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;

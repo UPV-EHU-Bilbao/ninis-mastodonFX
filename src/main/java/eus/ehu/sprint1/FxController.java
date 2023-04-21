@@ -1,4 +1,4 @@
-package eus.ehu.sprint2;
+package eus.ehu.sprint1;
 
 public interface FxController {
 

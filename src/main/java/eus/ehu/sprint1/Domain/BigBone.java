@@ -1,4 +1,4 @@
-package eus.ehu.sprint2.Domain;
+package eus.ehu.sprint1.Domain;
 
 import social.bigbone.MastodonClient;
 import social.bigbone.api.entity.Account;

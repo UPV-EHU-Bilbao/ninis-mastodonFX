@@ -1,6 +1,6 @@
-package eus.ehu.sprint2.DataAccess;
+package eus.ehu.sprint1.DataAccess;
 
-import eus.ehu.sprint2.configuration.Config;
+import eus.ehu.sprint1.configuration.Config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

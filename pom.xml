@@ -109,7 +109,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>eus.ehu.bum4/eus.ehu.sprint2.AppLauncher</mainClass>
+                            <mainClass>eus.ehu.bum4/eus.ehu.sprint1.AppLauncher</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

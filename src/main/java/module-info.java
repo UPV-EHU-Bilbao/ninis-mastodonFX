@@ -12,12 +12,12 @@ module eus.ehu.sprint1 {
     requires java.desktop;
     requires java.sql;
 
-    exports eus.ehu.sprint2;
+    exports eus.ehu.sprint1;
 
-    opens eus.ehu.sprint2 to com.google.gson, javafx.fxml;
-    exports eus.ehu.sprint2.Domain;
-    opens eus.ehu.sprint2.Domain to com.google.gson, javafx.fxml;
-    exports eus.ehu.sprint2.controllers;
-    opens eus.ehu.sprint2.controllers to com.google.gson, javafx.fxml;
+    opens eus.ehu.sprint1 to com.google.gson, javafx.fxml;
+    exports eus.ehu.sprint1.Domain;
+    opens eus.ehu.sprint1.Domain to com.google.gson, javafx.fxml;
+    exports eus.ehu.sprint1.controllers;
+    opens eus.ehu.sprint1.controllers to com.google.gson, javafx.fxml;
 
 }
