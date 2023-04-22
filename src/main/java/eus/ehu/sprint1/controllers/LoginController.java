@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eus.ehu.sprint1.AppLauncher;
+import eus.ehu.sprint1.Domain.BigBone;
+import eus.ehu.sprint1.businessLogic.BlFacade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +20,12 @@ import javafx.stage.Stage;
 
 public class LoginController {
 
+
+   // private BlFacade bl;
+
+   // public LoginController(BlFacade bl) {
+    //    this.bl = bl;
+  //  }
     @FXML
     private ResourceBundle resources;
 
@@ -27,8 +35,6 @@ public class LoginController {
     @FXML
     private AnchorPane window;
 
-    @FXML
-    private PasswordField passField;
 
     @FXML
     private TextField usernameField;
@@ -38,6 +44,8 @@ public class LoginController {
 
     @FXML
     void login(ActionEvent event) throws IOException {
+       // BigBone bigBone = new BigBone();
+        //bigBone.setTOKEN(bl.getID(usernameField.getText()));
         window.getScene().getWindow().hide();
         //show main.fxml
         FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("main.fxml"));
@@ -52,10 +60,28 @@ public class LoginController {
 
     @FXML
     void initialize() {
-        assert passField != null : "fx:id=\"passField\" was not injected: check your FXML file 'login.fxml'.";
         assert usernameField != null : "fx:id=\"usernameField\" was not injected: check your FXML file 'login.fxml'.";
         assert wrong != null : "fx:id=\"wrong\" was not injected: check your FXML file 'login.fxml'.";
 
     }
+    @FXML
+    void goreg(ActionEvent event) throws IOException {
+
+        window.getScene().getWindow().hide();
+        //show main.fxml
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("register.fxml"));
+        Parent root = fxmlLoader.load();
+
+        // Crear una nueva escena con la vista y establecerla en la ventana actual
+        Scene scene = new Scene(root);
+        Stage mainStage = new Stage();
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+
+
+
+
+
 
 }

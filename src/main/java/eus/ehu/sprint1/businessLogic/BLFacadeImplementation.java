@@ -25,7 +25,7 @@ private String TOKEN;
     }
 
     @Override
-    public String getID(String username, String password) {
+    public String getID(String username) {
 
             dbAccessManager.open();
 
@@ -41,6 +41,23 @@ private String TOKEN;
         this.currentuser = dbAccessManager.login(username);
         dbAccessManager.close();
 
+
+    }
+    public void register(String username,String TOKEN) {
+
+        dbAccessManager.open();
+        User user= new User(username,TOKEN);
+        dbAccessManager.storeUser(user);
+        dbAccessManager.close();
+
+    }
+
+    @Override
+    public String getusername(String username) {
+        dbAccessManager.open();
+        String name= dbAccessManager.getUserString(username);
+        dbAccessManager.close();
+        return name;
     }
 }
 

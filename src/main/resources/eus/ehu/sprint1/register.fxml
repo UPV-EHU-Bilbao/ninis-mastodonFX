@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="window" prefHeight="364.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eus.ehu.sprint1.controllers.RegisterController">
+    <children>
+        <TextField fx:id="usernameField" layoutX="299.0" layoutY="94.0" />
+        <Label layoutX="192.0" layoutY="98.0" text="Username:" />
+        <Button layoutX="241.0" layoutY="219.0" mnemonicParsing="false" onAction="#register" text="REGISTER" />
+        <Label fx:id="wrong" layoutX="192.0" layoutY="251.0" prefHeight="18.0" prefWidth="164.0" />
+      <Label layoutX="206.0" layoutY="152.0" text="TOKEN" />
+      <PasswordField fx:id="token" layoutX="299.0" layoutY="148.0" />
+      <Label fx:id="warning" layoutX="206.0" layoutY="277.0" prefHeight="17.0" prefWidth="177.0" />
+    </children>
+</AnchorPane>

@@ -13,8 +13,11 @@ public class BigBone {
     MastodonClient client;
     String accountID;
 
+    String TOKEN;
+
     public BigBone() {
         instance = "mastodon.social";
+        //client = new MastodonClient.Builder(instance).accessToken(TOKEN).build();
         client = new MastodonClient.Builder(instance).accessToken(System.getenv("TOKEN")).build();
         try {
             accountID = client.accounts().verifyCredentials().execute().getId();
@@ -22,6 +25,7 @@ public class BigBone {
             throw new RuntimeException(e);
         }
     }
+
 
 
     public List<Account> getFollowers() throws BigBoneRequestException {
@@ -51,6 +55,14 @@ public class BigBone {
     }
     public void postToot(String toot) throws BigBoneRequestException {
         client.statuses().postStatus(toot).execute();
+    }
+  //settoken
+    public void setTOKEN(String TOKEN) {
+        this.TOKEN = TOKEN;
+    }
+    //gettoken
+    public String getTOKEN() {
+        return TOKEN;
     }
 
 }

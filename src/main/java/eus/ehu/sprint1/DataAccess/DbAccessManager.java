@@ -113,6 +113,23 @@ public class DbAccessManager {
         return null;
     }
 
+    public String getUserString(String username) {
+        String command = "SELECT * FROM Userlist WHERE username = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(command)) {
+            pstmt.setString(1, username);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                String TOKEN = rs.getString("TOKEN");
+                String Username = rs.getString("username");
+                return Username;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        this.close();
+            return "null";
+    }
+
     public String getTOKEN(String username) {
         this.open();
         String command = "SELECT ID FROM users WHERE ID = ?";
