@@ -41,4 +41,8 @@ public class BigBone {
         return client.accounts().getAccount(accountID).execute().getAvatar();
     }
 
+    //get id
+    public String getID() {
+        return accountID;
+    }
 }

@@ -30,6 +30,7 @@ public class FollowersController {
         BigBone bigBone = new BigBone();
         List<Account> followers = bigBone.getFollowers();
         followers.forEach(follower -> followersArea.appendText(follower.getUsername() + "\r\n"));
+
     }
 
 }

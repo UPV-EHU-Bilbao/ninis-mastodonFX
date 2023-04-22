@@ -1,11 +1,11 @@
 package eus.ehu.sprint1.DataAccess;
 
+import eus.ehu.sprint1.Domain.BigBone;
+import eus.ehu.sprint1.Domain.User;
 import eus.ehu.sprint1.configuration.Config;
+import social.bigbone.api.exception.BigBoneRequestException;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DbAccessManager {
     private Connection conn = null;
@@ -67,9 +67,13 @@ public class DbAccessManager {
 
         this.close();
     }
-    private void initializeDB() {
+    private void initializeDB()  {
 
         this.open();
+        BigBone bigBone = new BigBone();
+
+        User alvaro = new User("Iturri12", "\tvVVa5sXkRk-MTBI1z2-AWaZv6g6jVXvGajSIf0A8kFw");
+        storeUser(alvaro);
 
 
 
@@ -79,89 +83,76 @@ public class DbAccessManager {
 
     }
 
-    public void storeUser(String login, String password, String role) {
+    public void storeUser(User user) {
         this.open();
-        String command = "INSERT INTO users (login, password, role) VALUES (?, ?, ?)";
+        String command = "INSERT INTO Userlist (username, TOKEN) VALUES (?, ?)";
         try (PreparedStatement pstmt = conn.prepareStatement(command)) {
-            pstmt.setString(1, login);
-            pstmt.setString(2, password);
-            pstmt.setString(3, role);
+            pstmt.setString(1, user.getUsername());
+            pstmt.setString(2, user.getTOKEN());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        this.close();
     }
 
-    public void storeToken(String token, String login) {
-        this.open();
-        String command = "INSERT INTO tokens (token, login) VALUES (?, ?)";
+    public User getUser(String username) {
+        String command = "SELECT * FROM Userlist WHERE username = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(command)) {
-            pstmt.setString(1, token);
-            pstmt.setString(2, login);
-            pstmt.executeUpdate();
+            pstmt.setString(1, username);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                String TOKEN = rs.getString("TOKEN");
+                String Username = rs.getString("username");
+                User user = new User(Username, TOKEN);
+                return user;
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         this.close();
-    }
-    public void getRole(String login) {
-        this.open();
-        String command = "SELECT role FROM users WHERE login = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(command)) {
-            pstmt.setString(1, login);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        this.close();
-    }
-    public void getToken(String token) {
-        this.open();
-        String command = "SELECT token FROM tokens WHERE token = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(command)) {
-            pstmt.setString(1, token);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        this.close();
-    }
-    public void getLogin(String login) {
-        this.open();
-        String command = "SELECT login FROM users WHERE login = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(command)) {
-            pstmt.setString(1, login);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        this.close();
-    }
-    public void getPassword(String password) {
-        this.open();
-        String command = "SELECT password FROM users WHERE password = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(command)) {
-            pstmt.setString(1, password);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        this.close();
-    }
-    public void getRoleToken(String token) {
-        this.open();
-        String command = "SELECT role FROM users WHERE token = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(command)) {
-            pstmt.setString(1, token);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        this.close();
+        return null;
     }
 
+    public String getTOKEN(String username) {
+        this.open();
+        String command = "SELECT ID FROM users WHERE ID = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(command)) {
+            pstmt.setString(1, username);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                String TOKEN =rs.getString("TOKEN");
+                return TOKEN;
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        this.close();
+        return null;
+    }
+    public User login(String username) {
+
+        String sql = "SELECT * FROM userlist WHERE username = ? ";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, username);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                String username1 = rs.getString("username");
+                String TOKEN = rs.getString("TOKEN");
+                return new User(username1, TOKEN);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
 
 
+        }
+        return null;
+    }
 
 }
+
+
+
+
+
