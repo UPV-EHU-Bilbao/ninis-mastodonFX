@@ -49,5 +49,8 @@ public class BigBone {
             client.statuses().unfavouriteStatus(tootID).execute();
 
     }
+    public void postToot(String toot) throws BigBoneRequestException {
+        client.statuses().postStatus(toot).execute();
+    }
 
 }

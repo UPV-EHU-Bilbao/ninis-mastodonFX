@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class MainAppController {
 
-    private Window followingWin, tootsWin, followersWin;
+    private Window followingWin, tootsWin, followersWin, postTootWin;
 
     public class Window {
         private FxController controller;
@@ -42,6 +42,8 @@ public class MainAppController {
     void actionFollowers(ActionEvent event) {
         showScene("Followers");
     }
+    @FXML
+    void actionPostToot(ActionEvent event) {showScene("PostToot");}
 
     @FXML
     private BorderPane mainWrapper;
@@ -51,8 +53,10 @@ public class MainAppController {
         followingWin = load("following.fxml");
         followersWin = load("followers.fxml");
         tootsWin = load("showtoot.fxml");
+        postTootWin = load("postmytoot.fxml");
 
         showScene("Toot");
+
     }
 
     private void showScene(String scene) {
@@ -60,6 +64,7 @@ public class MainAppController {
             case "Following" -> mainWrapper.setCenter(followingWin.ui);
             case "Followers" -> mainWrapper.setCenter(followersWin.ui);
             case "Toot" -> mainWrapper.setCenter(tootsWin.ui);
+            case "PostToot" -> mainWrapper.setCenter(postTootWin.ui);
         }
     }
 
