@@ -39,3 +39,9 @@ Button:hover {
     -fx-background-radius: 25;
 }
 
+.post_button {
+    -fx-background-color: #808080;
+    -fx-background-radius: 25;
+}
+
+
