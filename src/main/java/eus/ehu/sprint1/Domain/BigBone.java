@@ -41,4 +41,13 @@ public class BigBone {
         return client.accounts().getAccount(accountID).execute().getAvatar();
     }
 
+    //create a request to like a toot
+    public void likeToot(String tootID, boolean like) throws BigBoneRequestException {
+        if (like)
+            client.statuses().favouriteStatus(tootID).execute();
+        else
+            client.statuses().unfavouriteStatus(tootID).execute();
+
+    }
+
 }

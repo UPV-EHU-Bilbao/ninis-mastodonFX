@@ -4,16 +4,21 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eus.ehu.sprint1.Domain.Toot;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebView;
+import social.bigbone.api.exception.BigBoneRequestException;
 
 public class TootItemCell {
+
+    Toot toot;
 
     @FXML
     private ResourceBundle resources;
@@ -27,7 +32,10 @@ public class TootItemCell {
     private AnchorPane listItem;
 
     @FXML
-    private RadioButton boost = new RadioButton();
+    private CheckBox boost;
+
+    @FXML
+    private CheckBox like;
 
     @FXML
     private ImageView image;
@@ -40,6 +48,17 @@ public class TootItemCell {
 
     @FXML
     private Label username = new Label();
+
+    @FXML
+    void likeAction(ActionEvent event) throws BigBoneRequestException {
+        if (like.isSelected()) {
+            toot.setLiked(true);
+        } else {
+            toot.setLiked(false);
+        }
+    }
+
+
 
     //create inizialize method
     @FXML
@@ -62,11 +81,13 @@ public class TootItemCell {
                 e.printStackTrace();
             }
         }
+        this.toot = toot;
         date.setText(toot.getDate());
         username.setText(toot.getUsername());
         tootText.getEngine().loadContent(toot.getTootText());
         tootText.getEngine().getLoadWorker().stateProperty().addListener(new HyperLinkRedirectListener(tootText));
         boost.setSelected(toot.isBoost());
+        like.setSelected(toot.isLiked());
         image.setImage(new Image(toot.getAvatar()));
         System.out.println(toot.getAvatar());
         boost.setDisable(true);
