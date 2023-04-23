@@ -1,11 +1,15 @@
 package eus.ehu.sprint1;
 
+import eus.ehu.sprint1.businessLogic.BlFacade;
 import eus.ehu.sprint1.controllers.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -13,6 +17,12 @@ import java.io.IOException;
 public class MainAppController {
 
     private Window followingWin, tootsWin, followersWin, postTootWin;
+
+    private BlFacade bl;
+
+    public MainAppController(BlFacade bl) {
+        this.bl = bl;
+    }
 
     public class Window {
         private FxController controller;
@@ -72,5 +82,31 @@ public class MainAppController {
     @FXML
     void actionFollowing(ActionEvent event) {
         showScene("Following");
+    }
+
+    @FXML
+    void actionLogout(ActionEvent event) throws IOException {
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"));
+        fxmlLoader.setControllerFactory(c -> {
+            if (c == LoginController.class) {
+                return new LoginController(bl);
+            } else {
+                try {
+                    return c.newInstance();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root);
+        Stage mainStage = new Stage();
+        mainStage.setScene(scene);
+        mainStage.show();
+
+        currentStage.close();
     }
 }
