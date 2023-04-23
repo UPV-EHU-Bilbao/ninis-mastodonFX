@@ -3,9 +3,9 @@ package eus.ehu.sprint1.controllers;
 import java.net.URL;
 import java.util.*;
 
-import eus.ehu.sprint1.Domain.BigBone;
-import eus.ehu.sprint1.Domain.Toot;
 import eus.ehu.sprint1.TootItemCell;
+import eus.ehu.sprint1.domain.BigBone;
+import eus.ehu.sprint1.domain.Toot;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 import social.bigbone.api.entity.Status;
 import social.bigbone.api.exception.BigBoneRequestException;
 
-import static eus.ehu.sprint1.Domain.Utils.mapByValue;
+import static eus.ehu.sprint1.domain.Utils.mapByValue;
 
 public class ClientController {
 

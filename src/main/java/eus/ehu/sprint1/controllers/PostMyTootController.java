@@ -1,6 +1,6 @@
 package eus.ehu.sprint1.controllers;
 
-import eus.ehu.sprint1.Domain.BigBone;
+import eus.ehu.sprint1.domain.BigBone;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,4 +1,4 @@
-package eus.ehu.sprint1.Domain;
+package eus.ehu.sprint1.domain;
 
 public class User {
 

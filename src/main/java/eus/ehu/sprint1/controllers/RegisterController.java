@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eus.ehu.sprint1.AppLauncher;
-import eus.ehu.sprint1.Domain.User;
 import eus.ehu.sprint1.FxController;
 import eus.ehu.sprint1.businessLogic.BlFacade;
 import javafx.event.ActionEvent;

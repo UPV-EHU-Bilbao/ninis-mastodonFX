@@ -3,13 +3,13 @@ package eus.ehu.sprint1;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import eus.ehu.sprint1.Domain.Toot;
+import eus.ehu.sprint1.HyperLinkRedirectListener;
+import eus.ehu.sprint1.domain.Toot;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
