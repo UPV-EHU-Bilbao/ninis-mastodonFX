@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import eus.ehu.sprint1.AppLauncher;
 import eus.ehu.sprint1.Domain.BigBone;
+import eus.ehu.sprint1.MainAppController;
 import eus.ehu.sprint1.businessLogic.BlFacade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,20 +49,30 @@ public class LoginController {
             wrong.setText("Username does not exist");
         } else{
             BigBone bigbone = BigBone.getInstanceFirst(bl.getTOKEN(usernameField.getText()));
-        window.getScene().getWindow().hide();
-        //show main.fxml
+            window.getScene().getWindow().hide();
+            //show main.fxml
 
-        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("main.fxml"));
-        Parent root = fxmlLoader.load();
+            FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("main.fxml"));
+            fxmlLoader.setControllerFactory(c -> {
+                if (c == MainAppController.class) {
+                    return new MainAppController(bl);
+                } else {
+                    try {
+                        return c.newInstance();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            });
+            Parent root = fxmlLoader.load();
+            // Crear una nueva escena con la vista y establecerla en la ventana actual
+            Scene scene = new Scene(root);
+            Stage mainStage = new Stage();
+            mainStage.setScene(scene);
+            mainStage.show();
+        }
 
-        // Crear una nueva escena con la vista y establecerla en la ventana actual
-        Scene scene = new Scene(root);
-        Stage mainStage = new Stage();
-        mainStage.setScene(scene);
-        mainStage.show();
     }
-
-}
 
     @FXML
     void initialize() {
