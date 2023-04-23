@@ -43,11 +43,18 @@ public class BigBone {
         if (instance == null) {
             instance = new BigBone(token);
         }
+        ;
         return instance;
     }
 
     public void setTOKEN(String TOKEN) {
         this.TOKEN = TOKEN;
+        client = new MastodonClient.Builder(instanceName).accessToken(TOKEN).build();
+        try {
+            accountID = client.accounts().verifyCredentials().execute().getId();
+        } catch (BigBoneRequestException e) {
+            throw new RuntimeException(e);
+        };
     }
 
 

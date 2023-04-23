@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eus.ehu.sprint1.AppLauncher;
+import eus.ehu.sprint1.MainAppController;
 import eus.ehu.sprint1.domain.BigBone;
 import eus.ehu.sprint1.businessLogic.BlFacade;
 import javafx.event.ActionEvent;
@@ -47,10 +48,22 @@ public class LoginController {
             wrong.setText("Username does not exist");
         } else{
             BigBone bigbone = BigBone.getInstanceFirst(bl.getTOKEN(usernameField.getText()));
+            bigbone.setTOKEN(bl.getTOKEN(usernameField.getText()));
         window.getScene().getWindow().hide();
         ///show main.fxml
 
         FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("main.fxml"));
+            fxmlLoader.setControllerFactory(c -> {
+                if (c == MainAppController.class) {
+                    return new MainAppController(bl);
+                } else {
+                    try {
+                        return c.newInstance();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            });
         Parent root = fxmlLoader.load();
 
         // Crear una nueva escena con la vista y establecerla en la ventana actual
