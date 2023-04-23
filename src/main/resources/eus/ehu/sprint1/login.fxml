@@ -16,9 +16,9 @@
             <Font size="18.0" />
          </font></Label>
       <Button layoutX="188.0" layoutY="215.0" mnemonicParsing="false" onAction="#login" prefHeight="42.0" prefWidth="91.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="LOGIN" />
-      <Label fx:id="wrong" layoutX="227.0" layoutY="297.0" prefHeight="27.0" prefWidth="178.0" textFill="#e12b2b">
+      <Label fx:id="wrong" layoutX="188.0" layoutY="297.0" prefHeight="27.0" prefWidth="217.0" textFill="#e12b2b">
          <font>
-            <Font size="20.0" />
+            <Font size="16.0" />
          </font></Label>
       <Button layoutX="325.0" layoutY="215.0" mnemonicParsing="false" onAction="#goreg" prefHeight="42.0" prefWidth="91.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="REGISTER" />
       <ImageView fitHeight="105.0" fitWidth="157.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">

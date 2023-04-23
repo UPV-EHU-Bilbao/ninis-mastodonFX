@@ -25,22 +25,26 @@ Button:hover {
 }
 
 .toots_button {
-    -fx-background-color: #2ce112;
+    -fx-background-color: #20B2AA;
     -fx-background-radius: 25;
 }
 
 .following_button {
-    -fx-background-color: #f60707;
+    -fx-background-color: #FF5733;
     -fx-background-radius: 25;
 }
 
 .followers_button {
-    -fx-background-color: #122fe3;
+    -fx-background-color: #6495ED;
     -fx-background-radius: 25;
 }
 
 .post_button {
     -fx-background-color: #808080;
+    -fx-background-radius: 25;
+}
+.logout_button {
+    -fx-background-color: #7FFFD4;
     -fx-background-radius: 25;
 }
 
