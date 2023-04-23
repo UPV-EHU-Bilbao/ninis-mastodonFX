@@ -70,13 +70,6 @@ public class DbAccessManager {
     private void initializeDB()  {
 
         this.open();
-        BigBone bigBone = new BigBone();
-
-        User alvaro = new User("Iturri12", "\tvVVa5sXkRk-MTBI1z2-AWaZv6g6jVXvGajSIf0A8kFw");
-        storeUser(alvaro);
-
-
-
         this.close();
 
         System.out.println("The database has been initialized");
@@ -114,12 +107,11 @@ public class DbAccessManager {
     }
 
     public String getUserString(String username) {
-        String command = "SELECT * FROM Userlist WHERE username = ?";
+        String command = "SELECT username FROM Userlist WHERE username = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(command)) {
             pstmt.setString(1, username);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                String TOKEN = rs.getString("TOKEN");
                 String Username = rs.getString("username");
                 return Username;
             }
@@ -132,7 +124,7 @@ public class DbAccessManager {
 
     public String getTOKEN(String username) {
         this.open();
-        String command = "SELECT ID FROM users WHERE ID = ?";
+        String command = "SELECT TOKEN FROM Userlist WHERE username = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(command)) {
             pstmt.setString(1, username);
             ResultSet rs = pstmt.executeQuery();
@@ -145,7 +137,7 @@ public class DbAccessManager {
             System.out.println(e.getMessage());
         }
         this.close();
-        return null;
+        return "null";
     }
     public User login(String username) {
 

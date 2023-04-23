@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import eus.ehu.sprint1.AppLauncher;
 import eus.ehu.sprint1.Domain.User;
+import eus.ehu.sprint1.FxController;
 import eus.ehu.sprint1.businessLogic.BlFacade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,14 +19,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class RegisterController {
+public class RegisterController implements FxController {
 
 
-   // private BlFacade bl;
+   private BlFacade bl;
 
-    //public RegisterController(BlFacade bl) {
-   //     this.bl = bl;
-   // }
+    public RegisterController(BlFacade bl) {
+       this.bl = bl;
+   }
     @FXML
     private ResourceBundle resources;
 
@@ -49,14 +50,25 @@ public class RegisterController {
 
     @FXML
     void register(ActionEvent event) throws IOException {
-       // String user = bl.getusername(usernameField.getText());
-       // if (usernameField.getText() == user) {
+         String user = bl.getusername(usernameField.getText());
+         if (usernameField.getText() == user) {
             warning.setText("Username already exists");
-       // } else {
-         //   bl.register(usernameField.getText(), token.getText());
+         } else {
+            bl.register(usernameField.getText(), token.getText());
             window.getScene().getWindow().hide();
             //show main.fxml
             FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"));
+        fxmlLoader.setControllerFactory(c -> {
+            if (c == LoginController.class) {
+                return new LoginController(bl);
+            } else {
+                try {
+                    return c.newInstance();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
             Parent root = fxmlLoader.load();
 
             // Crear una nueva escena con la vista y establecerla en la ventana actual
@@ -66,6 +78,7 @@ public class RegisterController {
             mainStage.show();
         }
   //  }
+    }
 
 
     @FXML

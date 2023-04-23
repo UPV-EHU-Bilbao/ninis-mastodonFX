@@ -25,7 +25,7 @@ private String TOKEN;
     }
 
     @Override
-    public String getID(String username) {
+    public String getTOKEN(String username) {
 
             dbAccessManager.open();
 
@@ -33,7 +33,7 @@ private String TOKEN;
 
             dbAccessManager.close();
 
-        return username;
+        return TOKEN;
     }
     public void login(String username)  {
 

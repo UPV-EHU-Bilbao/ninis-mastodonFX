@@ -56,7 +56,7 @@ public class BigBone {
     public void postToot(String toot) throws BigBoneRequestException {
         client.statuses().postStatus(toot).execute();
     }
-  //settoken
+    //settoken
     public void setTOKEN(String TOKEN) {
         this.TOKEN = TOKEN;
     }

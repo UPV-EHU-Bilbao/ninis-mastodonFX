@@ -1,5 +1,6 @@
 package eus.ehu.sprint1;
 
+import eus.ehu.sprint1.controllers.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +23,7 @@ public class MainAppController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Parent ui = loader.load();
-           // FxController controller = loader.getController();
+            //LoginController controller = loader.getController();
 
             Window window = new Window();
             //window.controller = controller;
