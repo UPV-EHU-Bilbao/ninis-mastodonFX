@@ -1,7 +1,6 @@
 package eus.ehu.sprint1;
 
 
-import eus.ehu.sprint1.Domain.BigBone;
 import eus.ehu.sprint1.businessLogic.BLFacadeImplementation;
 import eus.ehu.sprint1.businessLogic.BlFacade;
 import eus.ehu.sprint1.controllers.LoginController;

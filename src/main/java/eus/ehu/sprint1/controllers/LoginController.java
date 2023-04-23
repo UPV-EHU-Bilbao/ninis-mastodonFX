@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eus.ehu.sprint1.AppLauncher;
-import eus.ehu.sprint1.Domain.BigBone;
+import eus.ehu.sprint1.domain.BigBone;
 import eus.ehu.sprint1.businessLogic.BlFacade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +13,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -49,7 +48,7 @@ public class LoginController {
         } else{
             BigBone bigbone = BigBone.getInstanceFirst(bl.getTOKEN(usernameField.getText()));
         window.getScene().getWindow().hide();
-        //show main.fxml
+        ///show main.fxml
 
         FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("main.fxml"));
         Parent root = fxmlLoader.load();

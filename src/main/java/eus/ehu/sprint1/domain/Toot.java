@@ -1,4 +1,4 @@
-package eus.ehu.sprint1.Domain;
+package eus.ehu.sprint1.domain;
 
 import social.bigbone.api.entity.Status;
 import social.bigbone.api.exception.BigBoneRequestException;

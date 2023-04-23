@@ -1,7 +1,7 @@
 package eus.ehu.sprint1.businessLogic;
 
-import eus.ehu.sprint1.DataAccess.DbAccessManager;
-import eus.ehu.sprint1.Domain.User;
+import eus.ehu.sprint1.dataAccess.DbAccessManager;
+import eus.ehu.sprint1.domain.User;
 import eus.ehu.sprint1.configuration.Config;
 
 public class BLFacadeImplementation implements BlFacade {

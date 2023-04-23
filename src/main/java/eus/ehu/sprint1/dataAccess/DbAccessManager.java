@@ -1,9 +1,7 @@
-package eus.ehu.sprint1.DataAccess;
+package eus.ehu.sprint1.dataAccess;
 
-import eus.ehu.sprint1.Domain.BigBone;
-import eus.ehu.sprint1.Domain.User;
+import eus.ehu.sprint1.domain.User;
 import eus.ehu.sprint1.configuration.Config;
-import social.bigbone.api.exception.BigBoneRequestException;
 
 import java.sql.*;
 

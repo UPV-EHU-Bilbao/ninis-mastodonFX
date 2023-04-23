@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eus.ehu.sprint1.AppLauncher;
-import eus.ehu.sprint1.Domain.User;
 import eus.ehu.sprint1.FxController;
 import eus.ehu.sprint1.businessLogic.BlFacade;
 import javafx.event.ActionEvent;
@@ -58,17 +57,17 @@ public class RegisterController implements FxController {
             window.getScene().getWindow().hide();
             //show main.fxml
             FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"));
-        fxmlLoader.setControllerFactory(c -> {
-            if (c == LoginController.class) {
-                return new LoginController(bl);
-            } else {
-                try {
-                    return c.newInstance();
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
+            fxmlLoader.setControllerFactory(c -> {
+                if (c == LoginController.class) {
+                    return new LoginController(bl);
+                } else {
+                    try {
+                        return c.newInstance();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                 }
-            }
-        });
+             });
             Parent root = fxmlLoader.load();
 
             // Crear una nueva escena con la vista y establecerla en la ventana actual
