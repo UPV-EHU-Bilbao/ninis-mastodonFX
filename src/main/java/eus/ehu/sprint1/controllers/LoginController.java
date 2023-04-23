@@ -48,7 +48,7 @@ public class LoginController {
         } else{
             BigBone bigbone = BigBone.getInstanceFirst(bl.getTOKEN(usernameField.getText()));
         window.getScene().getWindow().hide();
-        //show main.fxml
+        ///show main.fxml
 
         FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("main.fxml"));
         Parent root = fxmlLoader.load();
