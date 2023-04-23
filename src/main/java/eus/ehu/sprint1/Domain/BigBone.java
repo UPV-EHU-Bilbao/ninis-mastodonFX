@@ -9,21 +9,44 @@ import java.util.List;
 
 public class BigBone {
 
-    public String instance;
-    MastodonClient client;
-    String accountID;
+    private static BigBone instance;
+    private String instanceName;
+    private MastodonClient client;
+    private String accountID;
+    private String TOKEN="0";
 
-    String TOKEN;
-
-    public BigBone() {
-        instance = "mastodon.social";
-        //client = new MastodonClient.Builder(instance).accessToken(TOKEN).build();
-        client = new MastodonClient.Builder(instance).accessToken(System.getenv("TOKEN")).build();
+    private BigBone() {
+        instanceName = "mastodon.social";
+        client = new MastodonClient.Builder(instanceName).accessToken(this.TOKEN).build();
         try {
             accountID = client.accounts().verifyCredentials().execute().getId();
         } catch (BigBoneRequestException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private BigBone(String token) {
+        instanceName = "mastodon.social";
+        client = new MastodonClient.Builder(instanceName).accessToken(token).build();
+        try {
+            accountID = client.accounts().verifyCredentials().execute().getId();
+        } catch (BigBoneRequestException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static BigBone getInstance() {
+        return instance;
+    }
+    public static BigBone getInstanceFirst(String token) {
+        if (instance == null) {
+            instance = new BigBone(token);
+        }
+        return instance;
+    }
+
+    public void setTOKEN(String TOKEN) {
+        this.TOKEN = TOKEN;
     }
 
 
@@ -56,10 +79,7 @@ public class BigBone {
     public void postToot(String toot) throws BigBoneRequestException {
         client.statuses().postStatus(toot).execute();
     }
-    //settoken
-    public void setTOKEN(String TOKEN) {
-        this.TOKEN = TOKEN;
-    }
+
     //gettoken
     public String getTOKEN() {
         return TOKEN;

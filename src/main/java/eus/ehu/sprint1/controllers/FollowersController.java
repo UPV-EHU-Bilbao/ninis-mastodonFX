@@ -27,7 +27,7 @@ public class FollowersController {
 
     @FXML
     void initialize() throws BigBoneRequestException {
-        BigBone bigBone = new BigBone();
+        BigBone bigBone = BigBone.getInstance();
         List<Account> followers = bigBone.getFollowers();
         followers.forEach(follower -> followersArea.appendText(follower.getUsername() + "\r\n"));
 

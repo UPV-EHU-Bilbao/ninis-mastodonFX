@@ -137,7 +137,7 @@ public class DbAccessManager {
             System.out.println(e.getMessage());
         }
         this.close();
-        return "null";
+        return null;
     }
     public User login(String username) {
 

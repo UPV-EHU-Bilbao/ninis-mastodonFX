@@ -44,7 +44,7 @@ public class PostMyTootController {
         if (content.getText().length() > max) {
             warining.setText("The toot is too long!");
         } else {
-            BigBone bigBone = new BigBone();
+            BigBone bigBone = BigBone.getInstance();;
             bigBone.postToot(content.getText());
             warining.setText("Toot posted!");
             warining.setFill(javafx.scene.paint.Color.GREEN);

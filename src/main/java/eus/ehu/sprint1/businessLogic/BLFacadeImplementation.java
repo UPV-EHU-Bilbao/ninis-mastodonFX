@@ -30,7 +30,6 @@ private String TOKEN;
             dbAccessManager.open();
 
             TOKEN = dbAccessManager.getTOKEN(username);
-
             dbAccessManager.close();
 
         return TOKEN;

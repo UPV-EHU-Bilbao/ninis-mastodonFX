@@ -32,7 +32,7 @@ public class ClientController {
     }
 
     public void showList() throws BigBoneRequestException {
-        BigBone bigBone = new BigBone();
+        BigBone bigBone = BigBone.getInstance();
         List<Status> tootList = bigBone.getToots();
         List<Toot> toots = new ArrayList<>();
         for (Status t : tootList) {

@@ -44,11 +44,10 @@ public class LoginController {
 
     @FXML
     void login(ActionEvent event) throws IOException {
-        if (bl.getTOKEN(usernameField.getText()) == "null") {
+        if (bl.getTOKEN(usernameField.getText()) == null) {
             wrong.setText("Username does not exist");
         } else{
-            BigBone bigbone = new BigBone();
-            bigbone.setTOKEN(bl.getTOKEN(usernameField.getText()));
+            BigBone bigbone = BigBone.getInstanceFirst(bl.getTOKEN(usernameField.getText()));
         window.getScene().getWindow().hide();
         //show main.fxml
 

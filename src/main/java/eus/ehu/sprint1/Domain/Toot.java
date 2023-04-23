@@ -67,7 +67,7 @@ public class Toot {
     }
 
     public void setLiked(boolean b) throws BigBoneRequestException {
-        BigBone bigBone = new BigBone();
+        BigBone bigBone = BigBone.getInstance();;
         bigBone.likeToot(tootID, b);
     }
 }
