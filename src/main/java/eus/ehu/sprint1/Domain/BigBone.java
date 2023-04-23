@@ -28,6 +28,7 @@ public class BigBone {
     private BigBone(String token) {
         instanceName = "mastodon.social";
         client = new MastodonClient.Builder(instanceName).accessToken(token).build();
+        setTOKEN(token);
         try {
             accountID = client.accounts().verifyCredentials().execute().getId();
         } catch (BigBoneRequestException e) {
