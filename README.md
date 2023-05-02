@@ -20,7 +20,7 @@ This is a Mastodon project doing , a decentralized and open-source microblogging
 
 ## Installation
 ### Prerequisites
-- In order to handle with Mastodon, you have to register in [Mastodon](https://mastodon.social/auth/sign_in), and require a TOKEN from developer mode. Then, add your token to TOKEN environment variable.
+- In order to handle with Mastodon, you have to register in [Mastodon](https://mastodon.social/auth/sign_in), and require a TOKEN from developer mode. Then, add your token to TOKEN label.
 
 - Clone the Mastodon repository onto your server:
 https://github.com/UPV-EHU-Bilbao/ninis-mastodonFX.git
