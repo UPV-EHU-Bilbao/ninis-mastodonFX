@@ -2,8 +2,10 @@ package eus.ehu.sprint1.dataAccess;
 
 import eus.ehu.sprint1.domain.User;
 import eus.ehu.sprint1.configuration.Config;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DbAccessManager {
     private Connection conn = null;
@@ -118,6 +120,22 @@ public class DbAccessManager {
         }
         this.close();
             return "null";
+    }
+
+    public ArrayList<String> getAllUsernames() {
+        ArrayList<String> usernames = new ArrayList<>();
+        String command = "SELECT username FROM Userlist";
+        try (PreparedStatement pstmt = conn.prepareStatement(command)) {
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                String username = rs.getString("username");
+                usernames.add(username);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        this.close();
+        return usernames;
     }
 
     public String getTOKEN(String username) {

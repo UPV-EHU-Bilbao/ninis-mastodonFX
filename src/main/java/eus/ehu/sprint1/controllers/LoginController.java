@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -35,20 +36,19 @@ public class LoginController {
     @FXML
     private AnchorPane window;
 
-
     @FXML
-    private TextField usernameField;
+    private ComboBox<String> usernameCB;
 
     @FXML
     private Label wrong;
 
     @FXML
     void login(ActionEvent event) throws IOException {
-        if (bl.getTOKEN(usernameField.getText()) == null) {
+        if (bl.getTOKEN(usernameCB.getValue()) == null) {
             wrong.setText("Username does not exist");
         } else{
-            BigBone bigbone = BigBone.getInstanceFirst(bl.getTOKEN(usernameField.getText()));
-            bigbone.setTOKEN(bl.getTOKEN(usernameField.getText()));
+            BigBone bigbone = BigBone.getInstanceFirst(bl.getTOKEN(usernameCB.getValue()));
+            bigbone.setTOKEN(bl.getTOKEN(usernameCB.getValue()));
         window.getScene().getWindow().hide();
         ///show main.fxml
 
@@ -71,16 +71,23 @@ public class LoginController {
         Stage mainStage = new Stage();
         mainStage.setScene(scene);
         mainStage.show();
+        }
     }
 
-}
+    public void setUsernameCB() {
+        for (String username : bl.getAllUsernames()) {
+            usernameCB.getItems().add(username);
+        }
+        usernameCB.getSelectionModel().selectFirst();
+    }
 
     @FXML
     void initialize() {
-        assert usernameField != null : "fx:id=\"usernameField\" was not injected: check your FXML file 'login.fxml'.";
         assert wrong != null : "fx:id=\"wrong\" was not injected: check your FXML file 'login.fxml'.";
-
+        setUsernameCB();
     }
+
+
     @FXML
     void goreg(ActionEvent event) throws IOException {
 

@@ -3,6 +3,9 @@ package eus.ehu.sprint1.businessLogic;
 import eus.ehu.sprint1.dataAccess.DbAccessManager;
 import eus.ehu.sprint1.domain.User;
 import eus.ehu.sprint1.configuration.Config;
+import javafx.collections.ObservableList;
+
+import java.util.ArrayList;
 
 public class BLFacadeImplementation implements BlFacade {
 
@@ -57,6 +60,14 @@ private String TOKEN;
         String name= dbAccessManager.getUserString(username);
         dbAccessManager.close();
         return name;
+    }
+
+    @Override
+    public ArrayList<String> getAllUsernames() {
+        dbAccessManager.open();
+        ArrayList<String> usernames= dbAccessManager.getAllUsernames();
+        dbAccessManager.close();
+        return usernames;
     }
 }
 
