@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="700.0" prefWidth="600.0" styleClass="followers" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eus.ehu.sprint1.controllers.FollowersController">
+<AnchorPane fx:id="listItem" prefHeight="210.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="225.0" layoutY="40.0" styleClass="h1" stylesheets="@bootstrapfx.css" text="Followers" />
-      <ListView fx:id="followersList" layoutX="8.0" layoutY="119.0" prefHeight="471.0" prefWidth="580.0" />
+      <Label fx:id="username" layoutX="93.0" layoutY="17.0" prefHeight="17.0" prefWidth="250.0" text="Usename" />
+      <ImageView fx:id="image" fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

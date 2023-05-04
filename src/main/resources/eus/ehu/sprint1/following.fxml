@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="700.0" prefWidth="600.0" styleClass="following" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eus.ehu.sprint1.controllers.FollowingController">
+<AnchorPane fx:id="listItem" prefHeight="76.0" prefWidth="346.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="225.0" layoutY="40.0" styleClass="h1" stylesheets="@bootstrapfx.css" text="Following" />
-      <ListView fx:id="followingList" layoutX="37.0" layoutY="93.0" prefHeight="536.0" prefWidth="540.0" />
+      <Label fx:id="username" layoutX="96.0" layoutY="26.0" prefHeight="17.0" prefWidth="250.0" text="Usename" />
+      <ImageView fx:id="image" fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

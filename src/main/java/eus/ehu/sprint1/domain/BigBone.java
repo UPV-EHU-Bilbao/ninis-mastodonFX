@@ -76,6 +76,11 @@ public class BigBone {
         return client.accounts().getAccount(accountID).execute().getAvatar();
     }
 
+    //get user name
+    public String getName() throws BigBoneRequestException {
+        return client.accounts().getAccount(accountID).execute().getDisplayName();
+    }
+
     //create a request to like a toot
     public void likeToot(String tootID, boolean like) throws BigBoneRequestException {
         if (like)

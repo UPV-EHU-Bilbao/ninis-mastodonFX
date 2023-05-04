@@ -13,8 +13,8 @@
       <ImageView fx:id="fotoPerfil" fitHeight="80.0" fitWidth="80.0" layoutX="47.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="username" layoutX="157.0" layoutY="34.0" prefHeight="17.0" prefWidth="143.0" text="Nombre de usuario" />
       <Button fx:id="myToots" layoutX="157.0" layoutY="62.0" mnemonicParsing="false" onAction="#actionToots" text="My Toots" />
-      <Button fx:id="following" layoutX="248.0" layoutY="62.0" mnemonicParsing="false" text="Following" />
-      <Button fx:id="followers" layoutX="343.0" layoutY="62.0" mnemonicParsing="false" text="Followers" />
+      <Button fx:id="following" layoutX="248.0" layoutY="62.0" mnemonicParsing="false" onAction="#actionFollowing" text="Following" />
+      <Button fx:id="followers" layoutX="343.0" layoutY="62.0" mnemonicParsing="false" onAction="#actionFollowers" text="Followers" />
       <AnchorPane fx:id="childAnchor" layoutX="29.0" layoutY="114.0" prefHeight="575.0" prefWidth="650.0">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
