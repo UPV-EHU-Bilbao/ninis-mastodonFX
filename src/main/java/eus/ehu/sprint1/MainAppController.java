@@ -65,7 +65,7 @@ public class MainAppController {
         followersWin = load("followers.fxml");
         tootsWin = load("showtoot.fxml");
         postTootWin = load("postmytoot.fxml");
-        timelineWin = load("timeline.fxml");
+        //timelineWin = load("timeline.fxml");
         profileWin = load("profile.fxml");
         showScene("Toot");
 
@@ -77,7 +77,7 @@ public class MainAppController {
             case "Followers" -> mainWrapper.setCenter(followersWin.ui);
             case "Toot" -> mainWrapper.setCenter(tootsWin.ui);
             case "PostToot" -> mainWrapper.setCenter(postTootWin.ui);
-            case "Timeline" -> mainWrapper.setCenter(timelineWin.ui);
+            //case "Timeline" -> mainWrapper.setCenter(timelineWin.ui);
             case "Profile" -> mainWrapper.setCenter(profileWin.ui);
         }
     }
