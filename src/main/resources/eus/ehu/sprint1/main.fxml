@@ -12,7 +12,7 @@
         <AnchorPane BorderPane.alignment="CENTER" />
     </center>
     <left>
-        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
 
             <ImageView fitHeight="70.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
                 <image>
@@ -24,6 +24,8 @@
             <Button mnemonicParsing="false" onAction="#actionFollowers" prefHeight="40.0" prefWidth="85.0" styleClass="followers_button" text="Followers" />
             <Button mnemonicParsing="false" onAction="#actionPostToot" prefHeight="40.0" prefWidth="85.0" styleClass="post_button" text="Post Toot" />
             <Button mnemonicParsing="false" onAction="#actionLogout" prefHeight="40.0" prefWidth="85.0" styleClass="logout_button" stylesheets="@styles.css" text="Logout" />
+         <Button mnemonicParsing="false" onAction="#actionTimeline" text="TimeLine" />
+         <Button mnemonicParsing="false" onAction="#actionTimeline" text="Profile" />
         </VBox>
     </left>
 </BorderPane>
