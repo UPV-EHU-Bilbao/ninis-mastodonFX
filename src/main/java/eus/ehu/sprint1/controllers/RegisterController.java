@@ -49,34 +49,41 @@ public class RegisterController implements FxController {
 
     @FXML
     void register(ActionEvent event) throws IOException {
-         String user = bl.getusername(usernameField.getText());
-         if (usernameField.getText() == user) {
-            warning.setText("Username already exists");
-         } else {
-            bl.register(usernameField.getText(), token.getText());
-            window.getScene().getWindow().hide();
-            //show main.fxml
-            FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"));
-            fxmlLoader.setControllerFactory(c -> {
-                if (c == LoginController.class) {
-                    return new LoginController(bl);
-                } else {
-                    try {
-                        return c.newInstance();
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-             });
-            Parent root = fxmlLoader.load();
+        if(usernameField.getText().isEmpty()) {
+            warning.setText("Username field is empty");
+        }else{
+            String user = bl.getusername(usernameField.getText());
+            if (bl.getusername(user) != null) {
+                warning.setText("Username already exists");
+            } else {
+                 if (token.getText().isEmpty()) {
+                     warning.setText("Token field is empty");
+                 }else {
+                     bl.register(usernameField.getText(), token.getText());
+                     window.getScene().getWindow().hide();
+                     //show main.fxml
+                     FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"));
+                     fxmlLoader.setControllerFactory(c -> {
+                         if (c == LoginController.class) {
+                             return new LoginController(bl);
+                         } else {
+                             try {
+                                 return c.newInstance();
+                             } catch (Exception e) {
+                                 throw new RuntimeException(e);
+                             }
+                         }
+                     });
+                     Parent root = fxmlLoader.load();
 
-            // Crear una nueva escena con la vista y establecerla en la ventana actual
-            Scene scene = new Scene(root);
-            Stage mainStage = new Stage();
-            mainStage.setScene(scene);
-            mainStage.show();
+                     // Crear una nueva escena con la vista y establecerla en la ventana actual
+                     Scene scene = new Scene(root);
+                     Stage mainStage = new Stage();
+                     mainStage.setScene(scene);
+                     mainStage.show();
+                 }
+             }
         }
-  //  }
     }
 
 

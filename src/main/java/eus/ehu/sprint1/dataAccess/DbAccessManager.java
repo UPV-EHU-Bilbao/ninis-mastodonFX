@@ -77,14 +77,16 @@ public class DbAccessManager {
     }
 
     public void storeUser(User user) {
-        this.open();
-        String command = "INSERT INTO Userlist (username, TOKEN) VALUES (?, ?)";
-        try (PreparedStatement pstmt = conn.prepareStatement(command)) {
-            pstmt.setString(1, user.getUsername());
-            pstmt.setString(2, user.getTOKEN());
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        if (user.getUsername() != null && user.getTOKEN() != null) {
+            this.open();
+            String command = "INSERT INTO Userlist (username, TOKEN) VALUES (?, ?)";
+            try (PreparedStatement pstmt = conn.prepareStatement(command)) {
+                pstmt.setString(1, user.getUsername());
+                pstmt.setString(2, user.getTOKEN());
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
@@ -119,7 +121,7 @@ public class DbAccessManager {
             System.out.println(e.getMessage());
         }
         this.close();
-            return "null";
+        return null;
     }
 
     public ArrayList<String> getAllUsernames() {
