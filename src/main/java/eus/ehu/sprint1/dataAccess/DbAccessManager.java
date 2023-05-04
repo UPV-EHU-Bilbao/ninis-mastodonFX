@@ -126,7 +126,19 @@ public class DbAccessManager {
 
     public ArrayList<String> getAllUsernames() {
         ArrayList<String> usernames = new ArrayList<>();
-        String command = "SELECT username FROM Userlist";
+        this.open();
+        try {
+            String query = "SELECT username FROM Userlist";
+            ResultSet rs = conn.createStatement().executeQuery(query);
+            while (rs.next()) {
+                usernames.add(rs.getString("username"));
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        this.close();
+        return usernames;
+        /*String command = "SELECT username FROM Userlist";
         try (PreparedStatement pstmt = conn.prepareStatement(command)) {
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -137,7 +149,7 @@ public class DbAccessManager {
             System.out.println(e.getMessage());
         }
         this.close();
-        return usernames;
+        return usernames;*/
     }
 
     public String getTOKEN(String username) {
