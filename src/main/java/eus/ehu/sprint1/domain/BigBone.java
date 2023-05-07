@@ -1,6 +1,9 @@
 package eus.ehu.sprint1.domain;
 
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import social.bigbone.MastodonClient;
 import social.bigbone.api.entity.Account;
 import social.bigbone.api.entity.Status;
@@ -12,7 +15,6 @@ import social.bigbone.api.exception.BigBoneRequestException;
 
 import java.io.File;
 
-import java.io.InputStream;
 import java.util.Collections;
 import java.util.List;
 
@@ -94,22 +96,38 @@ public class BigBone {
             client.statuses().unfavouriteStatus(tootID).execute();
 
     }
-    public void postTootWithMedia(String toot) throws BigBoneRequestException {
-        final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        final File uploadFile = new File(classLoader.getResource("tree-736885_1280.jpg").getFile());
-       
+    public void postTootWithMedia(String toot, String token) throws BigBoneRequestException {
+            final String instanceName = "mastodon.social";
+            final String accessToken = token;
+
+            final MastodonClient client = new MastodonClient.Builder(instanceName).accessToken(accessToken).build();
+
+
+            final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+            final File uploadFile = new File(classLoader.getResource("prueba.png").getFile());
+
+
+
 // Upload image to Mastodon
-        final MediaAttachment uploadedFile = client.media().uploadMedia(uploadFile, "image/jpg").execute();
-        final String mediaId = uploadedFile.getId();
+
+            final MediaAttachment uploadedFile = client.media().uploadMedia(uploadFile, "image/jpg").execute();
+            final String mediaId = uploadedFile.getId();
+
+
+        File imageFile = new File("prueba.png");
+        RequestBody imageRequestBody = RequestBody.create(imageFile, MediaType.parse("image/png"));
+        MultipartBody.Part imagePart = MultipartBody.Part.createFormData("file", imageFile.getName(), imageRequestBody);
+
 
 // Post status with media attached
-        final String inReplyToId = null;
-        final List<String> mediaIds = Collections.singletonList(mediaId);
-        final boolean sensitive = false;
-        final String spoilerText = "Image spoiler text";
-        final Visibility visibility = Visibility.Public;
-        final String language = "en";
-        client.statuses().postStatus(toot, visibility, inReplyToId, mediaIds, sensitive, spoilerText, language).execute();
+            final String inReplyToId = null;
+            final List<String> mediaIds = Collections.emptyList();
+            final boolean sensitive = false;
+            final String spoilerText = "Image spoiler text";
+            final Visibility visibility = Visibility.Public;
+            final String language = "en";
+            client.statuses().postStatus(toot, visibility, inReplyToId, mediaIds, sensitive, spoilerText, language).execute();
+
     }
 
     public void postToot(String toot) throws BigBoneRequestException {
@@ -121,4 +139,6 @@ public class BigBone {
         return TOKEN;
     }
 
+    public void PostStatusWithMediaAttached(String text, String text1) {
+    }
 }

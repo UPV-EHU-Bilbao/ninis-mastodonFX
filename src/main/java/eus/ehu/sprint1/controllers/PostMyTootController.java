@@ -1,7 +1,6 @@
 package eus.ehu.sprint1.controllers;
 
 import eus.ehu.sprint1.domain.BigBone;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -61,7 +60,16 @@ public class PostMyTootController {
         if (content.getText().length() > max) {
             warining.setText("The toot is too long!");
         } else {
-            BigBone bigBone = BigBone.getInstance();;
+            BigBone bigBone = BigBone.getInstance();
+/*
+           if (!imagepath.getText().isEmpty()){
+               bigBone.PostStatusWithMediaAttached(content.getText(),bigBone.getTOKEN());
+            }else {
+
+                bigBone.postToot(content.getText());
+            }
+
+ */
             bigBone.postToot(content.getText());
             warining.setText("Toot posted!");
             warining.setFill(javafx.scene.paint.Color.GREEN);
