@@ -7,6 +7,6 @@
 <AnchorPane prefHeight="700.0" prefWidth="600.0" styleClass="following" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eus.ehu.sprint1.controllers.FollowingController">
    <children>
       <Label layoutX="225.0" layoutY="40.0" styleClass="h1" stylesheets="@bootstrapfx.css" text="Following" />
-      <ListView fx:id="followingList" layoutX="37.0" layoutY="93.0" prefHeight="536.0" prefWidth="540.0" />
+      <ListView fx:id="followingList" layoutX="40.0" layoutY="100.0" prefHeight="536.0" prefWidth="500.0" />
    </children>
 </AnchorPane>

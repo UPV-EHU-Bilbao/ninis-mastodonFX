@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import social.bigbone.api.exception.BigBoneRequestException;
@@ -34,6 +36,11 @@ public class PostMyTootController {
     private Text warining;
     @FXML
     private Label wordcounter;
+    @FXML
+    private ImageView image;
+
+    @FXML
+    private TextField imagepath;
 
     @FXML
     void initialize() throws BigBoneRequestException {
@@ -44,6 +51,8 @@ public class PostMyTootController {
             int wordCount = words.length;
             wordcounter.setText("Nº of words: " + wordCount);
     });
+
+
     }
 
     public void postToot(ActionEvent actionEvent) throws BigBoneRequestException {
@@ -59,4 +68,14 @@ public class PostMyTootController {
         }
 
     }
+    @FXML
+    void showimage(ActionEvent event) {
+        if(!imagepath.getText().isEmpty()){
+            image.setImage(new javafx.scene.image.Image(imagepath.getText()));
+        }else{
+            warining.setText("You must enter a valid URL");
+            warining.setFill(javafx.scene.paint.Color.RED);
+        }
+    }
+
 }
