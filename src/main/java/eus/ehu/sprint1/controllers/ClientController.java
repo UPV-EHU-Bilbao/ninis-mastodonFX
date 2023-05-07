@@ -34,11 +34,17 @@ public class ClientController {
     public void showList() throws BigBoneRequestException {
         BigBone bigBone = BigBone.getInstance();
         List<Status> tootList = bigBone.getToots();
+        List<Status> timelineList = bigBone.getTimeline();
         List<Toot> toots = new ArrayList<>();
         for (Status t : tootList) {
             toots.add(new Toot(t));
         }
+        for (Status t : timelineList) {
+            toots.add(new Toot(t));
+        }
 
+        // sort by date
+        Collections.sort(toots, (o1, o2) -> o2.getDate().compareTo(o1.getDate()));
         ObservableList<Toot> items = FXCollections.observableArrayList(toots);
 
         if (tootsView != null) {

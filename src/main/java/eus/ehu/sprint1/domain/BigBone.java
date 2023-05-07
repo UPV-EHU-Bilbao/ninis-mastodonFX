@@ -71,6 +71,10 @@ public class BigBone {
         return  client.accounts().getStatuses(accountID).execute().getPart();
     }
 
+    public List<Status> getTimeline() throws BigBoneRequestException {
+        return client.timelines().getHomeTimeline().execute().getPart();
+    }
+
     //get user avatar
     public String getAvatar() throws BigBoneRequestException {
         return client.accounts().getAccount(accountID).execute().getAvatar();
