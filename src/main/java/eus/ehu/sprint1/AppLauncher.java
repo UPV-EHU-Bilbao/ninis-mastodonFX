@@ -1,7 +1,7 @@
 package eus.ehu.sprint1;
 
 
-import eus.ehu.sprint1.businessLogic.BLFacadeImplementation;
+import eus.ehu.sprint1.businessLogic.BlFacadeImplementation;
 import eus.ehu.sprint1.businessLogic.BlFacade;
 import eus.ehu.sprint1.controllers.LoginController;
 import javafx.application.Application;
@@ -16,7 +16,7 @@ public class AppLauncher extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        BlFacade bl = new BLFacadeImplementation();
+        BlFacade bl = BlFacadeImplementation.getInstance();
 
         FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"));
         fxmlLoader.setControllerFactory(c -> {

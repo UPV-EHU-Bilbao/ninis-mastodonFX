@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Config {
+
     private Properties prop;
 
     public static Config getInstance(){
@@ -34,6 +35,10 @@ public class Config {
 
     public String getDatabaseName() {
         return prop.getProperty("db.name");
+    }
+
+    public boolean isDataAccessLocal() {
+        return prop.getProperty("db.local").equals("true");
     }
 
 }

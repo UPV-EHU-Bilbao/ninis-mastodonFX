@@ -1,165 +1,131 @@
 package eus.ehu.sprint1.dataAccess;
 
-import eus.ehu.sprint1.domain.User;
 import eus.ehu.sprint1.configuration.Config;
+import eus.ehu.sprint1.domain.User;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import java.sql.*;
 
+/**
+ * Implements the Data Access utility to the objectDb database
+ */
 public class DbAccessManager {
-    private Connection conn = null;
-    private String dbpath;
+
+    protected EntityManager db;
+    protected EntityManagerFactory emf;
+
+    public DbAccessManager() {
+
+        this.open();
+
+    }
 
     public void open() {
-        try {
-            String url = "jdbc:sqlite:" + dbpath;
-            conn = DriverManager.getConnection(url);
-
-            System.out.println("Database connection established");
-        } catch (Exception e) {
-            System.err.println("Cannot connect to database server " + e);
-        }
+        open(false);
     }
 
-    public void close() {
-        if (conn != null)
+
+    public void open(boolean initializeMode) {
+
+        Config config = Config.getInstance();
+
+        System.out.println("Opening DataAccess instance => isDatabaseLocal: " +
+                config.isDataAccessLocal() + " getDatabBaseOpenMode: " + config.getDataBaseOpenMode());
+
+        String fileName = config.getDatabaseName();
+        if (initializeMode) {
+            fileName = fileName + ";drop";
+            System.out.println("Deleting the DataBase");
+        }
+
+        if (config.isDataAccessLocal()) {
+            final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
+                    .configure() // configures settings from hibernate.cfg.xml
+                    .build();
             try {
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
+                emf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+            } catch (Exception e) {
+                // The registry would be destroyed by the SessionFactory, but we had trouble building the SessionFactory
+                // so destroy it manually.
+                StandardServiceRegistryBuilder.destroy(registry);
             }
-        System.out.println("Database connection closed");
-    }
 
-
-    // singleton pattern
-    private static final DbAccessManager instance = new DbAccessManager();
-
-
-    public static DbAccessManager getInstance() {
-        return instance;
-    }
-
-    private DbAccessManager() {
-
-        dbpath = Config.getInstance().getDatabaseName();
-        if (Config.getInstance().getDataBaseOpenMode().equals("initialize")) {
-            truncateDB();
-            initializeDB();
+            db = emf.createEntityManager();
+            System.out.println("DataBase opened");
         }
-
     }
-    private void truncateDB() {
-        this.open();
 
-        String[] commands = new String[]{
-
-        };
-
-        for (String command : commands) {
-            try (PreparedStatement pstmt = conn.prepareStatement(command)) {
-                pstmt.executeUpdate();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-
-        this.close();
-    }
-    private void initializeDB()  {
-
-        this.open();
-        this.close();
-
-        System.out.println("The database has been initialized");
-
-    }
 
     public void storeUser(User user) {
-        this.open();
-        String command = "INSERT INTO Userlist (username, TOKEN) VALUES (?, ?)";
-        try (PreparedStatement pstmt = conn.prepareStatement(command)) {
-            pstmt.setString(1, user.getUsername());
-            pstmt.setString(2, user.getTOKEN());
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        db.getTransaction().begin();
+        db.persist(user);
+        db.getTransaction().commit();
+    }
+    public String getTOKEN(String username) {
+        db.getTransaction().begin();
+        User user = db.find(User.class, username);
+        db.getTransaction().commit();
+        return user.getTOKEN();
+    }
+
+    public void reset() {
+        db.getTransaction().begin();
+//    db.createQuery("DELETE FROM Table").executeUpdate();
+        db.getTransaction().commit();
+    }
+
+    public void initializeDB() {
+
+        this.reset();
+
+        try {
+
+            db.getTransaction().begin();
+
+            generateTestingData();
+
+            db.getTransaction().commit();
+            System.out.println("The database has been initialized");
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public User getUser(String username) {
-        String command = "SELECT * FROM Userlist WHERE username = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(command)) {
-            pstmt.setString(1, username);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                String TOKEN = rs.getString("TOKEN");
-                String Username = rs.getString("username");
-                User user = new User(Username, TOKEN);
-                return user;
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        this.close();
-        return null;
+
+
+    private void generateTestingData() {
+        // create domain entities and persist them
+    }
+
+
+
+    public void close() {
+        db.close();
+        System.out.println("DataBase is closed");
+    }
+
+    public User login(String username) {
+        db.getTransaction().begin();
+        User user = db.find(User.class, username);
+        db.getTransaction().commit();
+        return user;
     }
 
     public String getUserString(String username) {
-        String command = "SELECT username FROM Userlist WHERE username = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(command)) {
-            pstmt.setString(1, username);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                String Username = rs.getString("username");
-                return Username;
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        db.getTransaction().begin();
+        User user = db.find(User.class, username);
+        db.getTransaction().commit();
+        if (user!=null){
+            return user.getUsername();
         }
-        this.close();
+        else {
             return "null";
-    }
-
-    public String getTOKEN(String username) {
-        this.open();
-        String command = "SELECT TOKEN FROM Userlist WHERE username = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(command)) {
-            pstmt.setString(1, username);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                String TOKEN =rs.getString("TOKEN");
-                return TOKEN;
-
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
         }
-        this.close();
-        return null;
+
     }
-    public User login(String username) {
-
-        String sql = "SELECT * FROM userlist WHERE username = ? ";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, username);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                String username1 = rs.getString("username");
-                String TOKEN = rs.getString("TOKEN");
-                return new User(username1, TOKEN);
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-
-
-        }
-        return null;
-    }
-
 }
-
-
-
-
-
