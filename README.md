@@ -25,7 +25,6 @@ This is a Mastodon project doing , a decentralized and open-source microblogging
 - Clone the Mastodon repository onto your server:
 https://github.com/UPV-EHU-Bilbao/ninis-mastodonFX.git
 ## Project development
-- [0<sup>th</sup> Iteration](#0th-iteration-project-setup)
 - [1<sup>st</sup> Iteration](#1st-iteration-authentication-and-initial-use-cases)
 - [2<sup>nd</sup> Iteration](#2nd-iteration-migration-to-javafx-and-more-use-cases)
 - [3<sup>rd</sup> Iteration](#3rd-iteration-advanced-design-dashboards-and-rest-api)
