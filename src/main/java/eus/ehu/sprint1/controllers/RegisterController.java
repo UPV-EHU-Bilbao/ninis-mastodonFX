@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -29,6 +30,8 @@ public class RegisterController implements FxController {
     @FXML
     private ResourceBundle resources;
 
+    @FXML
+    private Button returnlogin;
     @FXML
     private URL location;
 
@@ -77,6 +80,29 @@ public class RegisterController implements FxController {
             mainStage.show();
         }
   //  }
+    }
+    @FXML
+    void returntologin(ActionEvent event)throws IOException  {
+        window.getScene().getWindow().hide();
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"));
+        fxmlLoader.setControllerFactory(c -> {
+            if (c == LoginController.class) {
+                return new LoginController(bl);
+            } else {
+                try {
+                    return c.newInstance();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        Parent root = fxmlLoader.load();
+
+        Scene scene = new Scene(root);
+        Stage mainStage = new Stage();
+        mainStage.setScene(scene);
+        mainStage.show();
+
     }
 
 

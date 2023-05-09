@@ -23,7 +23,7 @@
             <Button mnemonicParsing="false" onAction="#actionFollowing" prefHeight="40.0" prefWidth="85.0" styleClass="following_button" text="Following" />
             <Button mnemonicParsing="false" onAction="#actionFollowers" prefHeight="40.0" prefWidth="85.0" styleClass="followers_button" text="Followers" />
             <Button mnemonicParsing="false" onAction="#actionPostToot" prefHeight="40.0" prefWidth="85.0" styleClass="post_button" text="Post Toot" />
-            <Button mnemonicParsing="false" onAction="#actionLogout" prefHeight="40.0" prefWidth="85.0" styleClass="post_button" text="Logout" />
+            <Button mnemonicParsing="false" onAction="#actionLogout" prefHeight="40.0" prefWidth="85.0" styleClass="logout_button" stylesheets="@styles.css" text="Logout" />
         </VBox>
     </left>
 </BorderPane>
