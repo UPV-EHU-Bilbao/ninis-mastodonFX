@@ -69,7 +69,6 @@ public static BlFacadeImplementation getInstance() {
         dbAccessManager.close();
         return name;
     }
-
     @Override
     public ArrayList<String> getAllUsernames() {
         dbAccessManager.open();

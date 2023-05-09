@@ -4,9 +4,14 @@ import eus.ehu.sprint1.configuration.Config;
 import eus.ehu.sprint1.domain.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -81,9 +86,12 @@ public class DbAccessManager {
 
         this.reset();
 
+
+
         try {
 
             db.getTransaction().begin();
+
 
             generateTestingData();
 
@@ -128,4 +136,12 @@ public class DbAccessManager {
         }
 
     }
+    public ArrayList<String> getAllUsernames(){
+
+        TypedQuery<String> query = db.createQuery("SELECT username FROM User",
+                String.class);
+        ArrayList<String> usernames = (ArrayList<String>) query.getResultList();
+        return usernames;
+    }
+
 }
