@@ -96,7 +96,7 @@ public class BigBone {
             client.statuses().unfavouriteStatus(tootID).execute();
 
     }
-    public void postTootWithMedia(String toot, String token) throws BigBoneRequestException {
+   /* public void postTootWithMedia(String toot, String token) throws BigBoneRequestException {
             final String instanceName = "mastodon.social";
             final String accessToken = token;
 
@@ -128,7 +128,7 @@ public class BigBone {
             final String language = "en";
             client.statuses().postStatus(toot, visibility, inReplyToId, mediaIds, sensitive, spoilerText, language).execute();
 
-    }
+    }*/
 
     public void postToot(String toot) throws BigBoneRequestException {
         client.statuses().postStatus(toot).execute();

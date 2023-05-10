@@ -24,6 +24,6 @@
          </font></Text>
       <Label fx:id="wordcounter" layoutX="93.0" layoutY="456.0" prefHeight="18.0" prefWidth="146.0" />
       <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" layoutX="31.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="imagepath" layoutX="307.0" layoutY="83.0" onAction="#showimage" prefHeight="26.0" prefWidth="242.0" />
+      <TextField fx:id="imagepath" layoutX="307.0" layoutY="83.0" prefHeight="26.0" prefWidth="242.0" />
    </children>
 </AnchorPane>
