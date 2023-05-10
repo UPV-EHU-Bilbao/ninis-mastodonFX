@@ -71,7 +71,6 @@
             <artifactId>gson</artifactId>
             <version>2.10.1</version>
         </dependency>
-
         <dependency>
             <groupId>social.bigbone</groupId>
             <artifactId>bigbone</artifactId>
@@ -93,7 +92,6 @@
             <version>1.15.4</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>

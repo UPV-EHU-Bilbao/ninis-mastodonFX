@@ -13,6 +13,6 @@
       <ImageView fx:id="image" fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
       <CheckBox fx:id="boost" layoutX="570.0" layoutY="25.0" mnemonicParsing="false" text="Boosted" />
       <CheckBox fx:id="like" layoutX="497.0" layoutY="25.0" mnemonicParsing="false" onAction="#likeAction" text="Liked" />
-      <TextFlow fx:id="tootText" layoutX="14.0" layoutY="57.0" maxWidth="632.0" prefHeight="18.0" prefWidth="632.0" />
+      <TextFlow fx:id="tootText" layoutX="16.0" layoutY="68.0" maxWidth="632.0" prefHeight="50.0" prefWidth="632.0" />
    </children>
 </AnchorPane>

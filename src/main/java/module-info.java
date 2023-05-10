@@ -11,6 +11,7 @@ module eus.ehu.sprint1 {
     requires java.datatransfer;
     requires java.desktop;
     requires java.sql;
+    requires org.jsoup;
 
     exports eus.ehu.sprint1;
 
