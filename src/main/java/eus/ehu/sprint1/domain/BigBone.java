@@ -21,6 +21,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 
@@ -102,42 +103,25 @@ public class BigBone {
             client.statuses().unfavouriteStatus(tootID).execute();
 
     }
-   public void PostStatusWithMediaAttached(String toot, String token, File arch) throws BigBoneRequestException, IOException, URISyntaxException {
-            final String instanceName = "mastodon.social";
-            final String accessToken = token;
+    public void PostStatusWithMediaAttached(String toot, String token, File arch) throws BigBoneRequestException {
+        final MastodonClient client = new MastodonClient.Builder(instanceName).accessToken(token).build();
 
-            final MastodonClient client = new MastodonClient.Builder(instanceName).accessToken(accessToken).build();
-
-
-       if (!arch.exists()) {
-               throw new IllegalArgumentException("Image file does not exist");
-           }
+        if (!arch.exists()) {
+            throw new IllegalArgumentException("Image file does not exist");
+        }
 
 
-            final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-            final File uploadFile = arch;
+        final MediaAttachment uploadedFile = client.media().uploadMedia(arch, "image/jpg").execute();
+        final String mediaId = uploadedFile.getId();
 
-
-
-// Upload image to Mastodon
-
-            final MediaAttachment uploadedFile = client.media().uploadMedia(uploadFile, "image/jpg").execute();
-            final String mediaId = uploadedFile.getId();
-
-
-        File imageFile = new File("prueba.png");
-        RequestBody imageRequestBody = RequestBody.create(imageFile, MediaType.parse("image/png"));
-        MultipartBody.Part imagePart = MultipartBody.Part.createFormData("file", imageFile.getName(), imageRequestBody);
-
-
-// Post status with media attached
-            final String inReplyToId = null;
-            final List<String> mediaIds = Collections.emptyList();
-            final boolean sensitive = false;
-            final String spoilerText = "Image spoiler text";
-            final Visibility visibility = Visibility.Public;
-            final String language = "en";
-            client.statuses().postStatus(toot, visibility, inReplyToId, mediaIds, sensitive, spoilerText, language).execute();
+        // Post status with media attached
+        final String inReplyToId = null;
+        final List<String> mediaIds = Collections.singletonList(mediaId);
+        final boolean sensitive = false;
+        final String spoilerText = "Image spoiler text";
+        final Visibility visibility = Visibility.Public;
+        final String language = "en";
+        client.statuses().postStatus(toot, visibility, inReplyToId, mediaIds, sensitive, spoilerText, language).execute();
 
     }
 
