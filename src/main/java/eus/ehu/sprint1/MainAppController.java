@@ -46,6 +46,7 @@ public class MainAppController {
 
     @FXML
     void actionMyToots(ActionEvent event) {
+        tootsWin = load("showtoot.fxml");
         showScene("Toot");
     }
 
@@ -54,7 +55,9 @@ public class MainAppController {
         showScene("Followers");
     }
     @FXML
-    void actionPostToot(ActionEvent event) {showScene("PostToot");}
+    void actionPostToot(ActionEvent event) {
+        postTootWin = load("postmytoot.fxml");
+        showScene("PostToot");}
 
     @FXML
     private BorderPane mainWrapper;

@@ -1,9 +1,7 @@
 package eus.ehu.sprint1.domain;
 
 
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
+
 import social.bigbone.MastodonClient;
 import social.bigbone.api.entity.Account;
 import social.bigbone.api.entity.Status;
@@ -15,13 +13,6 @@ import social.bigbone.api.exception.BigBoneRequestException;
 
 import java.io.File;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,6 +23,7 @@ public class BigBone {
     private MastodonClient client;
     private String accountID;
     private String TOKEN="0";
+    private File arch= null;
 
 
     private BigBone() {
@@ -103,7 +95,7 @@ public class BigBone {
             client.statuses().unfavouriteStatus(tootID).execute();
 
     }
-    public void PostStatusWithMediaAttached(String toot, String token, File arch) throws BigBoneRequestException {
+    public void PostStatusWithMediaAttached(String toot, String token, File arch, String spoilerText) throws BigBoneRequestException {
         final MastodonClient client = new MastodonClient.Builder(instanceName).accessToken(token).build();
 
         if (!arch.exists()) {
@@ -118,16 +110,20 @@ public class BigBone {
         final String inReplyToId = null;
         final List<String> mediaIds = Collections.singletonList(mediaId);
         final boolean sensitive = false;
-        final String spoilerText = "Image spoiler text";
         final Visibility visibility = Visibility.Public;
+
         final String language = "en";
-        client.statuses().postStatus(toot, visibility, inReplyToId, mediaIds, sensitive, spoilerText, language).execute();
+        client.statuses().postStatus(toot, visibility, inReplyToId, mediaIds,sensitive, spoilerText, language).execute();
 
     }
+
+
 
     public void postToot(String toot) throws BigBoneRequestException {
         client.statuses().postStatus(toot).execute();
     }
+
+
 
     //gettoken
     public String getTOKEN() {

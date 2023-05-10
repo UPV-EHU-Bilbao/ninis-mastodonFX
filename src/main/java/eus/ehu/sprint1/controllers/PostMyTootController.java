@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -44,6 +45,10 @@ public class PostMyTootController {
     @FXML
     private ImageView image;
     private  File files;
+    @FXML
+    private Button sensebuton;
+    @FXML
+    private TextField spoilertext;
 
     @FXML
     void initialize() throws BigBoneRequestException {
@@ -53,6 +58,7 @@ public class PostMyTootController {
             String[] words = newValue.split("\\s+");
             int wordCount = words.length;
             wordcounter.setText("Nº of words: " + wordCount);
+
     });
 
 
@@ -66,18 +72,26 @@ public class PostMyTootController {
         } else {
             BigBone bigBone = BigBone.getInstance();
 
-           if (!image.getImage().equals(null)){
-               bigBone.PostStatusWithMediaAttached(content.getText(),bigBone.getTOKEN(),files);
+           if (image.getImage()!=null){
+
+               if (spoilertext.getText()!=null){
+                   bigBone.PostStatusWithMediaAttached(content.getText(), bigBone.getTOKEN(), files, spoilertext.getText());
+               }
+                else {
+                     bigBone.PostStatusWithMediaAttached(content.getText(), bigBone.getTOKEN(), files, "");
+                }
             }else {
 
-                bigBone.postToot(content.getText());
+               bigBone.postToot(content.getText());
+
             }
+           }
 
             warining.setText("Toot posted!");
-            warining.setFill(javafx.scene.paint.Color.GREEN);
+            warining.setFill(Color.GREEN);
         }
 
-    }
+
     @FXML
     void openfiles(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -88,6 +102,11 @@ public class PostMyTootController {
         );
         Stage stage = (Stage) image.getScene().getWindow();
         files = fileChooser.showOpenDialog(stage);
+        File sourceFile = new File("path/to/source/image.jpg");
+        File destFile = new File("path/to/destination/thumbnail.png");
+        int width = 200;
+        int height = 200;
+
         image.setImage(new Image(files.toURI().toString()));
 
 
@@ -107,6 +126,15 @@ public class PostMyTootController {
                 alert.showAndWait();
             }
         }
+    }
+    @FXML
+    void sensitive(ActionEvent event) {
+        if (sensebuton.isPressed()) {
+            spoilertext.setVisible(false);
+        } else {
+            spoilertext.setVisible(true );
+        }
+
     }
 
 
