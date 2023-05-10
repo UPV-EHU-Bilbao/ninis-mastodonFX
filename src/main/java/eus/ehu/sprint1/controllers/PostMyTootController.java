@@ -13,7 +13,9 @@ import javafx.stage.Stage;
 import social.bigbone.api.exception.BigBoneRequestException;
 
 
-import java.io.File;
+import javax.swing.*;
+import java.io.*;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -41,9 +43,7 @@ public class PostMyTootController {
     private Button file;
     @FXML
     private ImageView image;
-
-    @FXML
-    private TextField imagepath;
+    private  File files;
 
     @FXML
     void initialize() throws BigBoneRequestException {
@@ -58,23 +58,21 @@ public class PostMyTootController {
 
     }
 
-    public void postToot(ActionEvent actionEvent) throws BigBoneRequestException {
+    public void postToot(ActionEvent actionEvent) throws BigBoneRequestException, IOException, URISyntaxException {
         int max = 11000;
 
         if (content.getText().length() > max) {
             warining.setText("The toot is too long!");
         } else {
             BigBone bigBone = BigBone.getInstance();
-/*
-           if (!imagepath.getText().isEmpty()){
-               bigBone.PostStatusWithMediaAttached(content.getText(),bigBone.getTOKEN());
+
+           if (!image.getImage().equals(null)){
+               bigBone.PostStatusWithMediaAttached(content.getText(),bigBone.getTOKEN(),files);
             }else {
 
                 bigBone.postToot(content.getText());
             }
 
- */
-            bigBone.postToot(content.getText());
             warining.setText("Toot posted!");
             warining.setFill(javafx.scene.paint.Color.GREEN);
         }
@@ -83,23 +81,29 @@ public class PostMyTootController {
     @FXML
     void openfiles(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Seleccionar imagen");
+        fileChooser.setTitle("Choose an image");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Archivos de imagen", "*.png", "*.jpg", "*.jpeg", "*.gif"),
                 new FileChooser.ExtensionFilter("Todos los archivos", "*.*")
         );
         Stage stage = (Stage) image.getScene().getWindow();
-        File file = fileChooser.showOpenDialog(stage);
-        if (file != null) {
-            try {
-                Image image = new Image(file.toURI().toString());
+        files = fileChooser.showOpenDialog(stage);
+        image.setImage(new Image(files.toURI().toString()));
 
+
+        if (file == null) {
+            try {
+                File seleccion = fileChooser.showOpenDialog(null);
+                if (seleccion.equals( JFileChooser.APPROVE_OPTION)) {
+                    // El usuario ha seleccionado un archivo
+                    FileChooser.ExtensionFilter archivo = fileChooser.getSelectedExtensionFilter();
+                }
 
             } catch (IllegalArgumentException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setHeaderText("No se pudo cargar la imagen");
-                alert.setContentText("El archivo seleccionado no es una imagen válida.");
+                alert.setHeaderText("Can't open file");
+                alert.setContentText("The file is not valid");
                 alert.showAndWait();
             }
         }

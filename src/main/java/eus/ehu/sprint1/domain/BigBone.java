@@ -15,6 +15,12 @@ import social.bigbone.api.exception.BigBoneRequestException;
 
 import java.io.File;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 
@@ -55,7 +61,7 @@ public class BigBone {
         if (instance == null) {
             instance = new BigBone(token);
         }
-        ;
+
         return instance;
     }
 
@@ -96,15 +102,20 @@ public class BigBone {
             client.statuses().unfavouriteStatus(tootID).execute();
 
     }
-   /* public void postTootWithMedia(String toot, String token) throws BigBoneRequestException {
+   public void PostStatusWithMediaAttached(String toot, String token, File arch) throws BigBoneRequestException, IOException, URISyntaxException {
             final String instanceName = "mastodon.social";
             final String accessToken = token;
 
             final MastodonClient client = new MastodonClient.Builder(instanceName).accessToken(accessToken).build();
 
 
+       if (!arch.exists()) {
+               throw new IllegalArgumentException("Image file does not exist");
+           }
+
+
             final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-            final File uploadFile = new File(classLoader.getResource("prueba.png").getFile());
+            final File uploadFile = arch;
 
 
 
@@ -128,7 +139,7 @@ public class BigBone {
             final String language = "en";
             client.statuses().postStatus(toot, visibility, inReplyToId, mediaIds, sensitive, spoilerText, language).execute();
 
-    }*/
+    }
 
     public void postToot(String toot) throws BigBoneRequestException {
         client.statuses().postStatus(toot).execute();
@@ -139,6 +150,4 @@ public class BigBone {
         return TOKEN;
     }
 
-    public void PostStatusWithMediaAttached(String text, String text1) {
-    }
 }
