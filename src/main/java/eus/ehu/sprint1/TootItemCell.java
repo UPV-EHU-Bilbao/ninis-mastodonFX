@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.TextFlow;
 import javafx.scene.web.WebView;
 import social.bigbone.api.exception.BigBoneRequestException;
 
@@ -44,7 +45,7 @@ public class TootItemCell {
     private Label date = new Label();
 
     @FXML
-    private WebView tootText = new WebView();
+    private TextFlow tootText = new TextFlow();
 
     @FXML
     private Label username = new Label();
@@ -84,8 +85,10 @@ public class TootItemCell {
         this.toot = toot;
         date.setText(toot.getDate());
         username.setText(toot.getUsername());
-        tootText.getEngine().loadContent(toot.getTootText());
-        tootText.getEngine().getLoadWorker().stateProperty().addListener(new HyperLinkRedirectListener(tootText));
+        tootText.getChildren().add(new javafx.scene.text.Text((toot.getTootText())));
+        //tootText.getChildren().add(new javafx.scene.text.Text(Jsoup.parse(toot.getTootText()).text()));
+        //implementar este metodo en la linea de codigo de arriba para convertir el texto HTML a plaintext: Jsoup.parse(htmlText).text();
+        // EXAMPLE: Jsoup.parse(editor.getHtmlText()).text()
         boost.setSelected(toot.isBoost());
         like.setSelected(toot.isLiked());
         image.setImage(new Image(toot.getAvatar()));
