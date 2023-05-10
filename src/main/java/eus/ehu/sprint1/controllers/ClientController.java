@@ -17,6 +17,8 @@ import static eus.ehu.sprint1.domain.Utils.mapByValue;
 
 public class ClientController {
 
+    BigBone bigBone = BigBone.getInstance();
+
     @FXML
     private ResourceBundle resources;
 
@@ -32,7 +34,7 @@ public class ClientController {
     }
 
     public void showList() throws BigBoneRequestException {
-        BigBone bigBone = BigBone.getInstance();
+
         List<Status> tootList = bigBone.getToots();
         List<Toot> toots = new ArrayList<>();
         for (Status t : tootList) {

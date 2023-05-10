@@ -69,6 +69,11 @@ public class BigBone {
         };
     }
 
+    public String getUsername() throws BigBoneRequestException {
+        return client.accounts().getAccount(accountID).execute().getUsername();
+    }
+
+
 
 
     public List<Account> getFollowers() throws BigBoneRequestException {

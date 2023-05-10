@@ -49,3 +49,11 @@ Button:hover {
 }
 
 
+.profile_button {
+    -fx-background-color: #7fff81;
+    -fx-background-radius: 25;
+}
+
+.profile_buttons {
+    -fx-background-color: #7ff4ff;
+}
