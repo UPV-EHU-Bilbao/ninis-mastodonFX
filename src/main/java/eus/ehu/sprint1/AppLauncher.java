@@ -6,6 +6,8 @@ import eus.ehu.sprint1.businessLogic.BlFacade;
 import eus.ehu.sprint1.controllers.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+
+import java.io.File;
 import java.io.IOException;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -35,14 +37,10 @@ public class AppLauncher extends Application {
         stage.setScene(scene);
         stage.show();
 
-
     }
 
     public static void main(String[] args) {
         launch();
     }
-
-
-
 
 }

@@ -2,6 +2,7 @@ package eus.ehu.sprint1.businessLogic;
 
 import javafx.collections.ObservableList;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public interface BlFacade {
@@ -11,5 +12,11 @@ public interface BlFacade {
     String getusername(String username);
 
     ArrayList<String> getAllUsernames();
+
+    void setTheme(boolean theme);
+
+    boolean getTheme();
+
+    File getStyle();
 
 }

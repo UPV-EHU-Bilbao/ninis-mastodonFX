@@ -8,10 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 
 public class MainAppController {
@@ -19,6 +21,9 @@ public class MainAppController {
     private Window followingWin, tootsWin, followersWin, postTootWin;
 
     private BlFacade bl;
+
+    @FXML
+    private ToggleButton theme;
 
     public MainAppController(BlFacade bl) {
         this.bl = bl;
@@ -68,6 +73,11 @@ public class MainAppController {
 
         showScene("Toot");
 
+        if (!bl.getTheme()){
+            theme.setSelected(true);
+            theme.setText("Light Mode");
+        }
+
     }
 
     private void showScene(String scene) {
@@ -108,5 +118,18 @@ public class MainAppController {
         mainStage.show();
 
         currentStage.close();
+    }
+
+    @FXML
+    void themeChng(ActionEvent event) throws MalformedURLException {
+        if (theme.isSelected()){
+            theme.setText("Light Theme");
+            bl.setTheme(false);
+            mainWrapper.getStylesheets().add(bl.getStyle().toURI().toURL().toExternalForm());
+        } else {
+            theme.setText("Dark Theme");
+            bl.setTheme(true);
+            mainWrapper.getStylesheets().clear();
+        }
     }
 }

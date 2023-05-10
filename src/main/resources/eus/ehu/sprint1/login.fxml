@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,5 +27,6 @@
          </image>
       </ImageView>
       <ComboBox fx:id="usernameCB" layoutX="266.0" layoutY="147.0" prefWidth="150.0" />
+      <ToggleButton fx:id="theme" layoutX="497.0" layoutY="14.0" mnemonicParsing="false" onAction="#themeChng" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="Dark Mode" />
    </children>
 </AnchorPane>

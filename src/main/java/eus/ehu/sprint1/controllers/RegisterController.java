@@ -99,6 +99,9 @@ public class RegisterController implements FxController {
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
+        if (!bl.getTheme()){
+            scene.getStylesheets().add(bl.getStyle().toURI().toURL().toExternalForm());
+        }
         Stage mainStage = new Stage();
         mainStage.setScene(scene);
         mainStage.show();

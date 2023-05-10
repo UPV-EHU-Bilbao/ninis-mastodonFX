@@ -1,6 +1,8 @@
 package eus.ehu.sprint1.controllers;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,22 +18,26 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class LoginController {
 
-
     private BlFacade bl;
 
-     public LoginController(BlFacade bl) {
+    public LoginController(BlFacade bl) {
         this.bl = bl;
       }
+
     @FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
+
+    @FXML
+    private ToggleButton theme;
 
     @FXML
     private AnchorPane window;
@@ -68,9 +74,25 @@ public class LoginController {
 
         // Crear una nueva escena con la vista y establecerla en la ventana actual
         Scene scene = new Scene(root);
+        if (!bl.getTheme()){
+            scene.getStylesheets().add(bl.getStyle().toURI().toURL().toExternalForm());
+        }
         Stage mainStage = new Stage();
         mainStage.setScene(scene);
         mainStage.show();
+        }
+    }
+
+    @FXML
+    void themeChng(ActionEvent event) throws MalformedURLException {
+        if (theme.isSelected()){
+            theme.setText("Light Theme");
+            bl.setTheme(false);
+            window.getStylesheets().add(bl.getStyle().toURI().toURL().toExternalForm());
+        } else {
+            theme.setText("Dark Theme");
+            bl.setTheme(true);
+            window.getStylesheets().clear();
         }
     }
 
@@ -108,14 +130,12 @@ public class LoginController {
         Parent root = fxmlLoader.load();
         // Crear una nueva escena con la vista y establecerla en la ventana actual
         Scene scene = new Scene(root);
+        if (!bl.getTheme()){
+            scene.getStylesheets().add(bl.getStyle().toURI().toURL().toExternalForm());
+        }
         Stage mainStage = new Stage();
         mainStage.setScene(scene);
         mainStage.show();
     }
-
-
-
-
-
 
 }
