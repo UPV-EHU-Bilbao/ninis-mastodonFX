@@ -14,7 +14,7 @@
 <AnchorPane fx:id="listItem" prefHeight="600.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eus.ehu.sprint1.controllers.PostMyTootController">
    <children>
       <TextArea fx:id="content" layoutX="92.0" layoutY="167.0" prefHeight="265.0" prefWidth="478.0" promptText="Max characters 11000   " wrapText="true" />
-      <Button fx:id="postbutton" layoutX="276.0" layoutY="484.0" mnemonicParsing="false" onAction="#postToot" prefHeight="53.0" prefWidth="112.0" stylesheets="@bootstrapfx.css" text="Post toot">
+      <Button fx:id="postbutton" layoutX="269.0" layoutY="484.0" mnemonicParsing="false" onAction="#postToot" prefHeight="54.0" prefWidth="153.0" stylesheets="@bootstrapfx.css" text="%Post toot">
          <styleClass>
             <String fx:value="btn-lg" />
             <String fx:value="btn-primary" />
@@ -27,8 +27,8 @@
       <ImageView fx:id="image" fitHeight="141.0" fitWidth="190.0" layoutX="31.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
       <ToolBar layoutX="93.0" layoutY="436.0" prefHeight="40.0" prefWidth="162.0" stylesheets="@bootstrapfx.css">
         <items>
-            <Button fx:id="file" mnemonicParsing="false" onAction="#openfiles" prefHeight="26.0" prefWidth="50.0" styleClass="badge" text="Image" />
-          <Button fx:id="sensebuton" mnemonicParsing="false" onAction="#sensitive" styleClass="badge" stylesheets="@bootstrapfx.css" text="Warning msg" />
+            <Button fx:id="file" mnemonicParsing="false" onAction="#openfiles" prefHeight="26.0" prefWidth="50.0" styleClass="badge" text="%Image" />
+          <Button fx:id="sensebuton" mnemonicParsing="false" onAction="#sensitive" styleClass="badge" stylesheets="@bootstrapfx.css" text="%Warning msg" />
         </items>
       </ToolBar>
       <TextField fx:id="spoilertext" layoutX="401.0" layoutY="129.0" prefHeight="26.0" prefWidth="169.0" visible="false" />

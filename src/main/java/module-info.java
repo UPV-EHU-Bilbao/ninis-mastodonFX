@@ -13,6 +13,7 @@ module eus.ehu.sprint1 {
     requires java.sql;
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
+    requires javafx.swing;
 
     exports eus.ehu.sprint1;
 

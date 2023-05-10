@@ -72,13 +72,14 @@ public class PostMyTootController {
         } else {
             BigBone bigBone = BigBone.getInstance();
 
+
            if (image.getImage()!=null){
 
                if (spoilertext.getText()!=null){
-                   bigBone.PostStatusWithMediaAttached(content.getText(), bigBone.getTOKEN(), files, spoilertext.getText());
+                   bigBone.PostStatusWithMediaAttached(content.getText(), bigBone.getTOKEN(), bigBone.generateThumbnail(files, 200, 200), spoilertext.getText());
                }
                 else {
-                     bigBone.PostStatusWithMediaAttached(content.getText(), bigBone.getTOKEN(), files, "");
+                     bigBone.PostStatusWithMediaAttached(content.getText(), bigBone.getTOKEN(), bigBone.generateThumbnail(files, 200, 200), "");
                 }
             }else {
 
@@ -102,14 +103,10 @@ public class PostMyTootController {
         );
         Stage stage = (Stage) image.getScene().getWindow();
         files = fileChooser.showOpenDialog(stage);
-        File sourceFile = new File("path/to/source/image.jpg");
-        File destFile = new File("path/to/destination/thumbnail.png");
-        int width = 200;
-        int height = 200;
+
 
         image.setImage(new Image(files.toURI().toString()));
-
-
+        /*
         if (file == null) {
             try {
                 File seleccion = fileChooser.showOpenDialog(null);
@@ -125,7 +122,11 @@ public class PostMyTootController {
                 alert.setContentText("The file is not valid");
                 alert.showAndWait();
             }
+
+
         }
+
+         */
     }
     @FXML
     void sensitive(ActionEvent event) {

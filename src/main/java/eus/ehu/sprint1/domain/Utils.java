@@ -5,9 +5,7 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.WeakListChangeListener;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Function;
 
 public class Utils {
@@ -75,5 +73,13 @@ public class Utils {
             Object[] refs = { sourceListener, };
             Objects.requireNonNull(refs);
         });
+    }
+    public static ResourceBundle t() {
+        return ResourceBundle.getBundle("strings", new Locale("eus_ES"));
+        // use this in production : ResourceBundle.getBundle("strings", Locale.getDefault());
+    }
+
+    public static String t(String key) {
+        return t().getString(key);
     }
 }

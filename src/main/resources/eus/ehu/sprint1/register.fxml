@@ -12,8 +12,8 @@
 <AnchorPane fx:id="window" prefHeight="364.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eus.ehu.sprint1.controllers.RegisterController">
     <children>
         <TextField fx:id="usernameField" layoutX="299.0" layoutY="94.0" />
-        <Label layoutX="192.0" layoutY="98.0" text="Username:" />
-        <Button layoutX="241.0" layoutY="206.0" mnemonicParsing="false" onAction="#register" prefHeight="38.0" prefWidth="101.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="REGISTER" />
+        <Label layoutX="192.0" layoutY="98.0" text="%Username" />
+        <Button layoutX="241.0" layoutY="206.0" mnemonicParsing="false" onAction="#register" prefHeight="38.0" prefWidth="101.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="%Register" />
         <Label fx:id="wrong" layoutX="213.0" layoutY="258.0" prefHeight="18.0" prefWidth="164.0" />
       <Label layoutX="206.0" layoutY="152.0" text="TOKEN:" />
       <PasswordField fx:id="token" layoutX="299.0" layoutY="148.0" />
@@ -23,7 +23,7 @@
             <Image url="@Mastodon_logotype_(simple)_new_hue.svg.png" />
          </image>
       </ImageView>
-      <Button fx:id="returnlogin" layoutX="40.0" layoutY="300.0" mnemonicParsing="false" onAction="#returntologin" prefHeight="38.0" prefWidth="74.0" style="-fx-background-color: gray;" styleClass="active" text="Return" textFill="WHITE">
+      <Button fx:id="returnlogin" layoutX="40.0" layoutY="300.0" mnemonicParsing="false" onAction="#returntologin" prefHeight="38.0" prefWidth="74.0" style="-fx-background-color: gray;" styleClass="active" text="%Return" textFill="WHITE">
          <stylesheets>
             <URL value="@styles.css" />
             <URL value="@bootstrapfx.css" />
