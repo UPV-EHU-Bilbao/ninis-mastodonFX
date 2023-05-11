@@ -71,6 +71,11 @@ public class BigBone {
         };
     }
 
+    public String getUsername() throws BigBoneRequestException {
+        return client.accounts().getAccount(accountID).execute().getUsername();
+    }
+
+
 
 
     public List<Account> getFollowers() throws BigBoneRequestException {
@@ -83,6 +88,10 @@ public class BigBone {
 
     public List<Status> getToots() throws BigBoneRequestException {
         return  client.accounts().getStatuses(accountID).execute().getPart();
+    }
+
+    public List<Status> getTimeline() throws BigBoneRequestException {
+        return client.timelines().getHomeTimeline().execute().getPart();
     }
 
     //get user avatar
