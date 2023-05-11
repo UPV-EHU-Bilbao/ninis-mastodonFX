@@ -26,5 +26,6 @@
             <Image url="@Mastodon_logotype_(simple)_new_hue.svg.png" />
          </image>
       </ImageView>
+      <ComboBox fx:id="comboidiom" layoutX="469.0" layoutY="25.0" prefHeight="26.0" prefWidth="105.0" promptText="%Language" />
    </children>
 </AnchorPane>

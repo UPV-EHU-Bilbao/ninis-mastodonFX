@@ -16,7 +16,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -39,6 +38,8 @@ public class LoginController {
 
     @FXML
     private ComboBox<String> usernameCB;
+    @FXML
+    private ComboBox<String> comboidiom;
 
     @FXML
     private Label wrong;
@@ -51,6 +52,7 @@ public class LoginController {
             BigBone bigbone = BigBone.getInstanceFirst(bl.getTOKEN(usernameCB.getValue()));
             bigbone.setTOKEN(bl.getTOKEN(usernameCB.getValue()));
         window.getScene().getWindow().hide();
+
         ///show main.fxml
 
         FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("main.fxml"), ResourceBundle.getBundle("strings", new Locale("eus", "ES")));
@@ -86,7 +88,9 @@ public class LoginController {
     void initialize() {
         assert wrong != null : "fx:id=\"wrong\" was not injected: check your FXML file 'login.fxml'.";
         setUsernameCB();
+        String[] idiomas = {"eus", "es", "en"};
 
+        comboidiom.getItems().addAll(idiomas);
 
     }
 
@@ -115,8 +119,6 @@ public class LoginController {
         mainStage.setScene(scene);
         mainStage.show();
     }
-
-
 
 
 

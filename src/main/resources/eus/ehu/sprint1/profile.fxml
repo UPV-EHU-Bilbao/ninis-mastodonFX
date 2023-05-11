@@ -7,14 +7,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eus.ehu.sprint1.controllers.profileControler">
    <children>
       <ImageView fx:id="profilePhoto" fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="username" layoutX="136.0" layoutY="14.0" text="username" />
-      <Button layoutX="136.0" layoutY="64.0" mnemonicParsing="false" onAction="#actionToots" prefHeight="40.0" prefWidth="85.0" styleClass="profile_buttons" text="Toots" />
-      <Button layoutX="238.0" layoutY="64.0" mnemonicParsing="false" onAction="#actionFollowing" prefHeight="40.0" prefWidth="85.0" styleClass="profile_buttons" text="Following" />
-      <Button layoutX="336.0" layoutY="64.0" mnemonicParsing="false" onAction="#actionFollowers" prefHeight="40.0" prefWidth="85.0" styleClass="profile_buttons" text="Followers" />
+      <Label fx:id="username" layoutX="136.0" layoutY="14.0" prefHeight="32.0" prefWidth="86.0" text="%Username">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button layoutX="136.0" layoutY="64.0" mnemonicParsing="false" onAction="#actionToots" prefHeight="40.0" prefWidth="85.0" styleClass="profile_buttons" text="%Toots" />
+      <Button layoutX="238.0" layoutY="64.0" mnemonicParsing="false" onAction="#actionFollowing" prefHeight="40.0" prefWidth="85.0" styleClass="profile_buttons" text="%Following" />
+      <Button layoutX="336.0" layoutY="64.0" mnemonicParsing="false" onAction="#actionFollowers" prefHeight="40.0" prefWidth="85.0" styleClass="profile_buttons" text="%Followers" />
       <AnchorPane fx:id="showPane" layoutX="14.0" layoutY="126.0" prefHeight="460.0" prefWidth="670.0">
          <cursor>
             <Cursor fx:constant="DEFAULT" />

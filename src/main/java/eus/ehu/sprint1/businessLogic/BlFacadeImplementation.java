@@ -3,9 +3,10 @@ package eus.ehu.sprint1.businessLogic;
 import eus.ehu.sprint1.dataAccess.DbAccessManager;
 import eus.ehu.sprint1.domain.User;
 import eus.ehu.sprint1.configuration.Config;
-import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class BlFacadeImplementation implements BlFacade {
 
@@ -16,6 +17,7 @@ Config config = Config.getInstance();
 private User currentuser;
 
 private String TOKEN;
+
 
 private static BlFacadeImplementation bl = new BlFacadeImplementation();
 
@@ -76,5 +78,6 @@ public static BlFacadeImplementation getInstance() {
         dbAccessManager.close();
         return usernames;
     }
+
 }
 

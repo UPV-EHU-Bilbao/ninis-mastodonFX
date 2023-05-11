@@ -1,8 +1,7 @@
 package eus.ehu.sprint1.businessLogic;
 
-import javafx.collections.ObservableList;
-
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public interface BlFacade {
     String getTOKEN(String username);
@@ -11,5 +10,6 @@ public interface BlFacade {
     String getusername(String username);
 
     ArrayList<String> getAllUsernames();
+
 
 }

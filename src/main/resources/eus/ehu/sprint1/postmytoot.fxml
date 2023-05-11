@@ -23,9 +23,9 @@
          <font>
             <Font size="18.0" />
          </font></Text>
-      <Label fx:id="wordcounter" layoutX="93.0" layoutY="456.0" prefHeight="18.0" prefWidth="146.0" />
+      <Label fx:id="wordcounter" layoutX="455.0" layoutY="433.0" prefHeight="18.0" prefWidth="116.0" />
       <ImageView fx:id="image" fitHeight="141.0" fitWidth="190.0" layoutX="31.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
-      <ToolBar layoutX="93.0" layoutY="436.0" prefHeight="40.0" prefWidth="162.0" stylesheets="@bootstrapfx.css">
+      <ToolBar layoutX="92.0" layoutY="433.0" prefHeight="40.0" prefWidth="162.0" stylesheets="@bootstrapfx.css">
         <items>
             <Button fx:id="file" mnemonicParsing="false" onAction="#openfiles" prefHeight="26.0" prefWidth="50.0" styleClass="badge" text="%Image" />
           <Button fx:id="sensebuton" mnemonicParsing="false" onAction="#sensitive" styleClass="badge" stylesheets="@bootstrapfx.css" text="%Warning msg" />
