@@ -3,9 +3,7 @@ package eus.ehu.sprint1.businessLogic;
 import eus.ehu.sprint1.dataAccess.DbAccessManager;
 import eus.ehu.sprint1.domain.User;
 import eus.ehu.sprint1.configuration.Config;
-import javafx.collections.ObservableList;
 
-import javax.swing.text.Style;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -21,9 +19,8 @@ private String TOKEN;
 
 private boolean theme = true; //TRUE = LIGHT, FALSE = DARK
 
-File style = new File("src\\main\\resources\\eus\\ehu\\sprint1\\style.css");
-//Style darkmode = style.getStyle().toURI().toURL().toExternalForm();
-
+File darkStyle = new File("src\\main\\resources\\eus\\ehu\\sprint1\\style.css");
+File lightStyle = new File("src\\main\\resources\\eus\\ehu\\sprint1\\lightstyle.css");
     public void BlFacadeImplementation() {
 
         System.out.println("Creating BlFacadeImplementation instance");
@@ -82,8 +79,12 @@ File style = new File("src\\main\\resources\\eus\\ehu\\sprint1\\style.css");
         return this.theme;
     }
 
-    public File getStyle() {
-        return style;
+    public File getDarkStyle() {
+        return darkStyle;
+    }
+
+    public File getLightStyle() {
+        return lightStyle;
     }
 }
 

@@ -17,6 +17,8 @@ public interface BlFacade {
 
     boolean getTheme();
 
-    File getStyle();
+    File getDarkStyle();
+
+    File getLightStyle();
 
 }

@@ -100,7 +100,7 @@ public class RegisterController implements FxController {
 
         Scene scene = new Scene(root);
         if (!bl.getTheme()){
-            scene.getStylesheets().add(bl.getStyle().toURI().toURL().toExternalForm());
+            scene.getStylesheets().add(bl.getDarkStyle().toURI().toURL().toExternalForm());
         }
         Stage mainStage = new Stage();
         mainStage.setScene(scene);

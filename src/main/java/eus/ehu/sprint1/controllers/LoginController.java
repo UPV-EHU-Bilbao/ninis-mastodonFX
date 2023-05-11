@@ -1,6 +1,5 @@
 package eus.ehu.sprint1.controllers;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,7 +16,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -75,7 +73,7 @@ public class LoginController {
         // Crear una nueva escena con la vista y establecerla en la ventana actual
         Scene scene = new Scene(root);
         if (!bl.getTheme()){
-            scene.getStylesheets().add(bl.getStyle().toURI().toURL().toExternalForm());
+            scene.getStylesheets().add(bl.getDarkStyle().toURI().toURL().toExternalForm());
         }
         Stage mainStage = new Stage();
         mainStage.setScene(scene);
@@ -88,11 +86,13 @@ public class LoginController {
         if (theme.isSelected()){
             theme.setText("Light Theme");
             bl.setTheme(false);
-            window.getStylesheets().add(bl.getStyle().toURI().toURL().toExternalForm());
+            window.getStylesheets().clear();
+            window.getStylesheets().add(bl.getDarkStyle().toURI().toURL().toExternalForm());
         } else {
             theme.setText("Dark Theme");
             bl.setTheme(true);
             window.getStylesheets().clear();
+            window.getStylesheets().add(bl.getLightStyle().toURI().toURL().toExternalForm());
         }
     }
 
@@ -134,7 +134,7 @@ public class LoginController {
         // Crear una nueva escena con la vista y establecerla en la ventana actual
         Scene scene = new Scene(root);
         if (!bl.getTheme()){
-            scene.getStylesheets().add(bl.getStyle().toURI().toURL().toExternalForm());
+            scene.getStylesheets().add(bl.getDarkStyle().toURI().toURL().toExternalForm());
         }
         Stage mainStage = new Stage();
         mainStage.setScene(scene);
