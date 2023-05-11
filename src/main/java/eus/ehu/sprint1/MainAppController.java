@@ -12,6 +12,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 
 public class MainAppController {
@@ -31,12 +33,10 @@ public class MainAppController {
 
     private Window load(String fxml) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml), ResourceBundle.getBundle("strings", new Locale("eus", "ES")));
             Parent ui = loader.load();
-            //LoginController controller = loader.getController();
 
             Window window = new Window();
-            //window.controller = controller;
             window.ui = ui;
             return window;
         } catch (IOException e) {
@@ -46,15 +46,24 @@ public class MainAppController {
 
     @FXML
     void actionMyToots(ActionEvent event) {
+        tootsWin = load("showtoot.fxml");
         showScene("Toot");
     }
 
     @FXML
     void actionFollowers(ActionEvent event) {
+        followersWin = load("followers.fxml");
         showScene("Followers");
     }
     @FXML
-    void actionPostToot(ActionEvent event) {showScene("PostToot");}
+    void actionPostToot(ActionEvent event) {
+        postTootWin = load("postmytoot.fxml");
+        showScene("PostToot");}
+    @FXML
+    void actionFollowing(ActionEvent event) {
+        followingWin = load("following.fxml");
+        showScene("Following");
+    }
 
     @FXML
     void actionProfile(ActionEvent event) {
@@ -66,6 +75,7 @@ public class MainAppController {
 
     @FXML
     void initialize() {
+
         followingWin = load("following.fxml");
         followersWin = load("followers.fxml");
         tootsWin = load("showtoot.fxml");
@@ -86,17 +96,14 @@ public class MainAppController {
         }
     }
 
-    @FXML
-    void actionFollowing(ActionEvent event) {
-        showScene("Following");
-    }
+
 
     @FXML
     void actionLogout(ActionEvent event) throws IOException {
 
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"), ResourceBundle.getBundle("strings", new Locale("eus", "ES")));
         fxmlLoader.setControllerFactory(c -> {
             if (c == LoginController.class) {
                 return new LoginController(bl);

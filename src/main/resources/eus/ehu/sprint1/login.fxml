@@ -10,21 +10,21 @@
 
 <AnchorPane fx:id="window" prefHeight="364.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eus.ehu.sprint1.controllers.LoginController">
    <children>
-      <Label layoutX="150.0" layoutY="146.0" text="Username:">
+      <Label layoutX="150.0" layoutY="146.0" text="%Username">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Button layoutX="188.0" layoutY="215.0" mnemonicParsing="false" onAction="#login" prefHeight="42.0" prefWidth="91.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="LOGIN" />
       <Label fx:id="wrong" layoutX="188.0" layoutY="297.0" prefHeight="27.0" prefWidth="217.0" textFill="#e12b2b">
          <font>
             <Font size="16.0" />
          </font></Label>
-      <Button layoutX="325.0" layoutY="215.0" mnemonicParsing="false" onAction="#goreg" prefHeight="42.0" prefWidth="91.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="REGISTER" />
+      <ComboBox fx:id="usernameCB" layoutX="266.0" layoutY="147.0" prefWidth="150.0" />
+      <Button layoutX="188.0" layoutY="215.0" mnemonicParsing="false" onAction="#login" prefHeight="42.0" prefWidth="91.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="%Login" />
+      <Button layoutX="325.0" layoutY="215.0" mnemonicParsing="false" onAction="#goreg" prefHeight="42.0" prefWidth="91.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="%Register" />
       <ImageView fitHeight="105.0" fitWidth="157.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Mastodon_logotype_(simple)_new_hue.svg.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="usernameCB" layoutX="266.0" layoutY="147.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

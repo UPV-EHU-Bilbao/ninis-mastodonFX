@@ -2,6 +2,7 @@ package eus.ehu.sprint1.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import eus.ehu.sprint1.AppLauncher;
@@ -52,7 +53,7 @@ public class LoginController {
         window.getScene().getWindow().hide();
         ///show main.fxml
 
-        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("main.fxml"), ResourceBundle.getBundle("strings", new Locale("eus", "ES")));
             fxmlLoader.setControllerFactory(c -> {
                 if (c == MainAppController.class) {
                     return new MainAppController(bl);
@@ -85,6 +86,8 @@ public class LoginController {
     void initialize() {
         assert wrong != null : "fx:id=\"wrong\" was not injected: check your FXML file 'login.fxml'.";
         setUsernameCB();
+
+
     }
 
 
@@ -93,7 +96,7 @@ public class LoginController {
 
         window.getScene().getWindow().hide();
         //show main.fxml
-        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("register.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("register.fxml"), ResourceBundle.getBundle("strings", new Locale("eus", "ES")));
         fxmlLoader.setControllerFactory(c -> {
             if (c == RegisterController.class) {
                 return new RegisterController(bl);

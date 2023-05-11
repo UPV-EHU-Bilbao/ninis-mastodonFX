@@ -19,10 +19,12 @@
                     <Image url="@Mastodon_logotype_(simple)_new_hue.svg.png" />
                 </image>
             </ImageView>
+
             <Button mnemonicParsing="false" onAction="#actionMyToots" prefHeight="40.0" prefWidth="85.0" styleClass="toots_button" text="Timeline" />
             <Button mnemonicParsing="false" onAction="#actionProfile" prefHeight="40.0" prefWidth="85.0" styleClass="profile_button" text="Profile" />
             <Button mnemonicParsing="false" onAction="#actionPostToot" prefHeight="40.0" prefWidth="85.0" styleClass="post_button" text="Post Toot" />
             <Button mnemonicParsing="false" onAction="#actionLogout" prefHeight="40.0" prefWidth="85.0" styleClass="logout_button" stylesheets="@styles.css" text="Logout" />
+
         </VBox>
     </left>
 </BorderPane>

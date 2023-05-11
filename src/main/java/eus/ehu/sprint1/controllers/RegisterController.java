@@ -2,6 +2,7 @@ package eus.ehu.sprint1.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import eus.ehu.sprint1.AppLauncher;
@@ -59,7 +60,7 @@ public class RegisterController implements FxController {
             bl.register(usernameField.getText(), token.getText());
             window.getScene().getWindow().hide();
             //show main.fxml
-            FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"),ResourceBundle.getBundle("strings", new Locale("eus", "ES")));
             fxmlLoader.setControllerFactory(c -> {
                 if (c == LoginController.class) {
                     return new LoginController(bl);
@@ -84,7 +85,7 @@ public class RegisterController implements FxController {
     @FXML
     void returntologin(ActionEvent event)throws IOException  {
         window.getScene().getWindow().hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"),ResourceBundle.getBundle("strings", new Locale("eus", "ES")));
         fxmlLoader.setControllerFactory(c -> {
             if (c == LoginController.class) {
                 return new LoginController(bl);

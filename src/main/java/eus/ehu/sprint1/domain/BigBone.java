@@ -1,9 +1,9 @@
 package eus.ehu.sprint1.domain;
 
 
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
 import social.bigbone.MastodonClient;
 import social.bigbone.api.entity.Account;
 import social.bigbone.api.entity.Status;
@@ -12,9 +12,10 @@ import social.bigbone.api.entity.Status.Visibility;
 import social.bigbone.api.exception.BigBoneRequestException;
 
 
-
+import javax.imageio.ImageIO;
 import java.io.File;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class BigBone {
     private MastodonClient client;
     private String accountID;
     private String TOKEN="0";
+    private File arch= null;
 
 
     private BigBone() {
@@ -55,7 +57,7 @@ public class BigBone {
         if (instance == null) {
             instance = new BigBone(token);
         }
-        ;
+
         return instance;
     }
 
@@ -105,49 +107,61 @@ public class BigBone {
             client.statuses().unfavouriteStatus(tootID).execute();
 
     }
-   /* public void postTootWithMedia(String toot, String token) throws BigBoneRequestException {
-            final String instanceName = "mastodon.social";
-            final String accessToken = token;
+    public void PostStatusWithMediaAttached(String toot, String token, File arch, String spoilerText) throws BigBoneRequestException {
+        final MastodonClient client = new MastodonClient.Builder(instanceName).accessToken(token).build();
 
-            final MastodonClient client = new MastodonClient.Builder(instanceName).accessToken(accessToken).build();
-
-
-            final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-            final File uploadFile = new File(classLoader.getResource("prueba.png").getFile());
+        if (!arch.exists()) {
+            throw new IllegalArgumentException("Image file does not exist");
+        }
 
 
+        final MediaAttachment uploadedFile = client.media().uploadMedia(arch, "image/jpg").execute();
+        final String mediaId = uploadedFile.getId();
 
-// Upload image to Mastodon
+        // Post status with media attached
+        final String inReplyToId = null;
+        final List<String> mediaIds = Collections.singletonList(mediaId);
+        final boolean sensitive = false;
+        final Visibility visibility = Visibility.Public;
 
-            final MediaAttachment uploadedFile = client.media().uploadMedia(uploadFile, "image/jpg").execute();
-            final String mediaId = uploadedFile.getId();
+        final String language = "en";
+        client.statuses().postStatus(toot, visibility, inReplyToId, mediaIds,sensitive, spoilerText, language).execute();
+
+    }
 
 
-        File imageFile = new File("prueba.png");
-        RequestBody imageRequestBody = RequestBody.create(imageFile, MediaType.parse("image/png"));
-        MultipartBody.Part imagePart = MultipartBody.Part.createFormData("file", imageFile.getName(), imageRequestBody);
-
-
-// Post status with media attached
-            final String inReplyToId = null;
-            final List<String> mediaIds = Collections.emptyList();
-            final boolean sensitive = false;
-            final String spoilerText = "Image spoiler text";
-            final Visibility visibility = Visibility.Public;
-            final String language = "en";
-            client.statuses().postStatus(toot, visibility, inReplyToId, mediaIds, sensitive, spoilerText, language).execute();
-
-    }*/
 
     public void postToot(String toot) throws BigBoneRequestException {
         client.statuses().postStatus(toot).execute();
     }
+    public File generateThumbnail(File sourceFile, int width, int height) throws IOException {
+
+        Image sourceImage = new Image(sourceFile.toURI().toString());
+        double sourceWidth = sourceImage.getWidth();
+        double sourceHeight = sourceImage.getHeight();
+
+        double scaleX = width / sourceWidth;
+        double scaleY = height / sourceHeight;
+        double scale = Math.min(scaleX, scaleY);
+
+        double targetWidth = scale * sourceWidth;
+        double targetHeight = scale * sourceHeight;
+
+        WritableImage thumbnail = new WritableImage((int)targetWidth, (int)targetHeight);
+        thumbnail.getPixelWriter().setPixels(0, 0, (int)targetWidth, (int)targetHeight,
+                sourceImage.getPixelReader(), 0, 0);
+
+
+        File destFile = new File("src/main/resources/images/thumbnail.png");
+        ImageIO.write(SwingFXUtils.fromFXImage(thumbnail, null), "png", destFile);
+        return destFile;
+    }
+
+
 
     //gettoken
     public String getTOKEN() {
         return TOKEN;
     }
 
-    public void PostStatusWithMediaAttached(String text, String text1) {
-    }
 }
