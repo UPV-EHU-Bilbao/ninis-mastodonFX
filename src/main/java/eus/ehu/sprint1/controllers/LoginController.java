@@ -85,6 +85,10 @@ public class LoginController {
     @FXML
     void initialize() {
         assert wrong != null : "fx:id=\"wrong\" was not injected: check your FXML file 'login.fxml'.";
+        /*if (!bl.getTheme()){
+            theme.setSelected(true);
+            theme.setText("Light Theme");
+        }*/
         setUsernameCB();
 
 

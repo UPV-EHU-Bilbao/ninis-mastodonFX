@@ -35,10 +35,8 @@ public class MainAppController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml), ResourceBundle.getBundle("strings", new Locale("eus", "ES")));
             Parent ui = loader.load();
-            //LoginController controller = loader.getController();
 
             Window window = new Window();
-            //window.controller = controller;
             window.ui = ui;
             return window;
         } catch (IOException e) {
@@ -49,7 +47,8 @@ public class MainAppController {
     @FXML
     void actionMyToots(ActionEvent event) {
         tootsWin = load("showtoot.fxml");
-        showScene("Toot");
+        showScene("Toot")
+        ;
     }
 
     @FXML
