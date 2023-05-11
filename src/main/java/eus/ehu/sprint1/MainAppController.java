@@ -47,8 +47,7 @@ public class MainAppController {
     @FXML
     void actionMyToots(ActionEvent event) {
         tootsWin = load("showtoot.fxml");
-        showScene("Toot")
-        ;
+        showScene("Toot");
     }
 
     @FXML
