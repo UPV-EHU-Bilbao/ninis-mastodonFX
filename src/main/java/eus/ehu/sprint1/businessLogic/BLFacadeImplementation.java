@@ -5,6 +5,7 @@ import eus.ehu.sprint1.domain.User;
 import eus.ehu.sprint1.configuration.Config;
 import javafx.collections.ObservableList;
 
+import javax.swing.text.Style;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -21,6 +22,7 @@ private String TOKEN;
 private boolean theme = true; //TRUE = LIGHT, FALSE = DARK
 
 File style = new File("src\\main\\resources\\eus\\ehu\\sprint1\\style.css");
+//Style darkmode = style.getStyle().toURI().toURL().toExternalForm();
 
     public void BlFacadeImplementation() {
 
