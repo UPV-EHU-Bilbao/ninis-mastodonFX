@@ -27,7 +27,7 @@
          </image>
       </ImageView>
       <ComboBox fx:id="usernameCB" layoutX="266.0" layoutY="147.0" prefWidth="150.0" />
-      <ComboBox fx:id="comboidiom" layoutX="461.0" layoutY="25.0" prefHeight="26.0" prefWidth="114.0" promptText="%Language" styleClass="btn-info" stylesheets="@bootstrapfx.css" />
-      <ToggleButton fx:id="theme" layoutX="461.0" layoutY="67.0" mnemonicParsing="false" onAction="#themeChng" prefHeight="25.0" prefWidth="114.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="\%Dark Theme" />
+      <ComboBox fx:id="comboidiom" layoutX="461.0" layoutY="25.0" prefHeight="26.0" prefWidth="114.0" promptText="%Language" />
+      <ToggleButton fx:id="theme" layoutX="461.0" layoutY="67.0" mnemonicParsing="false" onAction="#themeChng" prefHeight="25.0" prefWidth="114.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="Dark Theme" />
    </children>
 </AnchorPane>

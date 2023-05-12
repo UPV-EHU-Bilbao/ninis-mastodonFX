@@ -92,6 +92,7 @@ public class LoginController {
 
     @FXML
     void themeChng(ActionEvent event) throws MalformedURLException {
+
         if (theme.isSelected()){
             theme.setText("Light Theme");
             bl.setTheme(false);
@@ -99,6 +100,7 @@ public class LoginController {
             window.getStylesheets().add(bl.getDarkStyle().toURI().toURL().toExternalForm());
         } else {
             theme.setText("Dark Theme");
+
             bl.setTheme(true);
             window.getStylesheets().clear();
             window.getStylesheets().add(bl.getLightStyle().toURI().toURL().toExternalForm());
@@ -143,7 +145,7 @@ public class LoginController {
 
     @FXML
     void goreg(ActionEvent event) throws IOException {
-
+        setLanguage();
         window.getScene().getWindow().hide();
         //show main.fxml
         FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("register.fxml"),ResourceBundle.getBundle("strings", Locale.getDefault()));

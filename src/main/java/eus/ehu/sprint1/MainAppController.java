@@ -23,11 +23,10 @@ public class MainAppController {
 
     private Window followingWin, tootsWin, followersWin, postTootWin, profileWin;
 
-    private PostMyTootController postMyTootController;
+
 
     private BlFacade bl;
 
-    private String Language;
 
     @FXML
     private ToggleButton theme;

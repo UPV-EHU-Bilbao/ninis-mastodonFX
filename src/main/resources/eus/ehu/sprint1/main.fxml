@@ -25,7 +25,7 @@
             <Button mnemonicParsing="false" onAction="#actionMyToots" prefHeight="40.0" prefWidth="85.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="%Home" />
             <Button mnemonicParsing="false" onAction="#actionProfile" prefHeight="40.0" prefWidth="85.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="%Profile" />
             <Button mnemonicParsing="false" onAction="#actionPostToot" prefHeight="40.0" prefWidth="85.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="%Post Toot" />
-            <Button mnemonicParsing="false" onAction="#actionLogout" prefHeight="70.0" prefWidth="86.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="%Logout" />
+            <Button mnemonicParsing="false" onAction="#actionLogout" prefHeight="40.0" prefWidth="94.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="%Logout" />
 
         </VBox>
     </left>
