@@ -65,14 +65,14 @@ With the proposed migration to BigBone, we have invested much of the time spent 
 Compulsory
 - [x] [Upgrade Domain Model and Event flows](https://github.com/UPV-EHU-Bilbao/ninis-mastodonFX/blob/main/docs/MastodonUML.mdj).
 - [x] Improve design of:
-      * Show toots
-      * Show followers
-      * Show Followings
+   * Show toots
+   * Show followers
+   * Show Followings
 - [x] Use cases:
-      * Register
-      * Login
-      * Post a toot
-      * Logout
+ * Register
+ * Login
+ * Post a toot
+ * Logout
 
 ---
 
@@ -95,9 +95,9 @@ Compulsory
 - [x] Use case of profile, where there are follwoing, followers and my toot
 - [x] Improve post my toot, now you can post image and text with spoiler message
 - [x] Improve design of:
-      * Show toots
-      * Show followers
-      * Show Followings
+  * Show toots
+  * Show followers
+  * Show Followings
   
   
 **Libraries used in all the project:**
