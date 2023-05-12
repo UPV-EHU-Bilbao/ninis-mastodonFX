@@ -96,8 +96,6 @@
             <artifactId>javafx-swing</artifactId>
             <version>21-ea+5</version>
         </dependency>
-
-        <!-- add assertj dependency -->
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>

@@ -143,7 +143,7 @@ public class LoginController {
 
         window.getScene().getWindow().hide();
         //show main.fxml
-        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("register.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("register.fxml"),ResourceBundle.getBundle("strings", Locale.getDefault()));
         fxmlLoader.setControllerFactory(c -> {
             if (c == RegisterController.class) {
                 return new RegisterController(bl);
