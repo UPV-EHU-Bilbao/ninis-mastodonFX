@@ -16,9 +16,9 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Button layoutX="136.0" layoutY="64.0" mnemonicParsing="false" onAction="#actionToots" prefHeight="40.0" prefWidth="85.0" styleClass="profile_buttons" text="%Toots" />
-      <Button layoutX="238.0" layoutY="64.0" mnemonicParsing="false" onAction="#actionFollowing" prefHeight="40.0" prefWidth="85.0" styleClass="profile_buttons" text="%Following" />
-      <Button layoutX="336.0" layoutY="64.0" mnemonicParsing="false" onAction="#actionFollowers" prefHeight="40.0" prefWidth="85.0" styleClass="profile_buttons" text="%Followers" />
+      <Button layoutX="136.0" layoutY="64.0" mnemonicParsing="false" onAction="#actionToots" prefHeight="40.0" prefWidth="85.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="%Toots" />
+      <Button layoutX="238.0" layoutY="64.0" mnemonicParsing="false" onAction="#actionFollowing" prefHeight="40.0" prefWidth="85.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="%Following" />
+      <Button layoutX="336.0" layoutY="64.0" mnemonicParsing="false" onAction="#actionFollowers" prefHeight="40.0" prefWidth="85.0" styleClass="btn-info" stylesheets="@bootstrapfx.css" text="%Followers" />
       <AnchorPane fx:id="showPane" layoutX="14.0" layoutY="126.0" prefHeight="460.0" prefWidth="670.0">
          <cursor>
             <Cursor fx:constant="DEFAULT" />

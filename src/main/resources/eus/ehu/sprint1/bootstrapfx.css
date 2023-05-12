@@ -1009,7 +1009,6 @@ a.badge:hover, a.badge:focused {
     -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.15), -1, 0, 0, 0); }
 
 .progress-bar-primary > .track {
-    -fx-pref-height: 10;
     -fx-background-radius: 4px;
     -fx-effect: innershadow(gaussian, #eeeeee, 4, 0, 0, 1);
     -fx-background-color: #f5f5f5; }
@@ -1023,7 +1022,6 @@ a.badge:hover, a.badge:focused {
     -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.15), -1, 0, 0, 0); }
 
 .progress-bar-success > .track {
-    -fx-pref-height: 10;
     -fx-background-radius: 4px;
     -fx-effect: innershadow(gaussian, #eeeeee, 4, 0, 0, 1);
     -fx-background-color: #f5f5f5; }
@@ -1037,7 +1035,6 @@ a.badge:hover, a.badge:focused {
     -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.15), -1, 0, 0, 0); }
 
 .progress-bar-info > .track {
-    -fx-pref-height: 10;
     -fx-background-radius: 4px;
     -fx-effect: innershadow(gaussian, #eeeeee, 4, 0, 0, 1);
     -fx-background-color: #f5f5f5; }
@@ -1051,7 +1048,6 @@ a.badge:hover, a.badge:focused {
     -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.15), -1, 0, 0, 0); }
 
 .progress-bar-warning > .track {
-    -fx-pref-height: 10;
     -fx-background-radius: 4px;
     -fx-effect: innershadow(gaussian, #eeeeee, 4, 0, 0, 1);
     -fx-background-color: #f5f5f5; }
@@ -1065,7 +1061,6 @@ a.badge:hover, a.badge:focused {
     -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.15), -1, 0, 0, 0); }
 
 .progress-bar-danger > .track {
-    -fx-pref-height: 10;
     -fx-background-radius: 4px;
     -fx-effect: innershadow(gaussian, #eeeeee, 4, 0, 0, 1);
     -fx-background-color: #f5f5f5; }

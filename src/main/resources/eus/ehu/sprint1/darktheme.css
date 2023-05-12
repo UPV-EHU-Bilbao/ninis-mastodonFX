@@ -55,7 +55,7 @@
     -fx-highlight-fill: #4e4e4e;
     -fx-min-height: 25;
     min-height: 25;
-    -fx-pref-height: 25;
+
 }
 .text-field:hover{
     -fx-border-color: #222222;
@@ -83,7 +83,7 @@
     background-color: #1A1A1A;
     -fx-min-height: 25;
     min-height: 25;
-    -fx-pref-height: 25;
+
 }
 .combo-box .list-cell:selected{
     -fx-background-color: #1A1A1A;
@@ -140,7 +140,6 @@
     background-color: #1A1A1A;
     -fx-min-height: 18;
     min-height: 18;
-    -fx-pref-height: 18;
     -fx-padding: 0 0 0 3;
     padding: 0 0 0 3;
 }
@@ -207,7 +206,7 @@
     -fx-text-fill: #AFB1B3;
     -fx-min-height: 25;
     min-height: 25;
-    -fx-pref-height: 25;
+
 }
 .button:focused{
     -fx-border-color: #4e4e4e;
@@ -244,7 +243,7 @@
     -fx-text-fill: #AFB1B3;
     -fx-min-height: 25;
     min-height: 25;
-    -fx-pref-height: 25;
+
 }
 .check-box > .box{
     -fx-background-radius: 0;
@@ -382,7 +381,6 @@
     -fx-text-fill: #AFB1B3;
     -fx-min-height: 20;
     min-height: 20;
-    -fx-pref-height: 20;
     -fx-padding: 0 5 0 5;
     padding: 0 5 0 5;
     -fx-cursor: HAND;
@@ -457,7 +455,6 @@
     border-radius: 6;
     -fx-border-insets: 1 0 1 2;
     -fx-pref-width: 12;
-    -fx-pref-height: 12;
     -fx-cursor: HAND;
     cursor: HAND;
 }
@@ -508,7 +505,7 @@
     -fx-border-width: 0;
     border-width: 0;
     -fx-pref-width: 20;
-    -fx-pref-height: 20;
+
     -fx-padding: 1;
     padding: 1;
     -fx-cursor: HAND;
@@ -557,7 +554,6 @@
     -fx-text-fill: #AFB1B3;
     -fx-min-height: 20;
     min-height: 20;
-    -fx-pref-height: 20;
 }
 .tab:selected{
     -fx-background-color: #4e4e4e;
@@ -599,7 +595,6 @@
     -fx-background-radius: 0;
     -fx-border-width: 0;
     border-width: 0;
-    -fx-pref-height: 14;
 }
 .titled-pane .content{
     -fx-background-color: #2D2D30;
