@@ -46,6 +46,8 @@ public class LoginController {
     @FXML
     private ComboBox<String> comboidiom;
 
+    private String Language;
+
     @FXML
     private Label wrong;
 
@@ -57,10 +59,11 @@ public class LoginController {
             BigBone bigbone = BigBone.getInstanceFirst(bl.getTOKEN(usernameCB.getValue()));
             bigbone.setTOKEN(bl.getTOKEN(usernameCB.getValue()));
         window.getScene().getWindow().hide();
+        setLanguage();
 
         ///show main.fxml
 
-        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("main.fxml"), ResourceBundle.getBundle("strings", new Locale("eus", "ES")));
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("main.fxml"), ResourceBundle.getBundle("strings", Locale.getDefault()));
             fxmlLoader.setControllerFactory(c -> {
                 if (c == MainAppController.class) {
                     return new MainAppController(bl);
@@ -117,10 +120,20 @@ public class LoginController {
         }
         String[] idiomas = {"eus", "es", "en"};
 
-        comboidiom.getItems().addAll(idiomas);
 
+        comboidiom.getItems().addAll(idiomas);
+        setLanguage();
     }
 
+    public void setLanguage() {
+        if (comboidiom.getValue() == "eus") {
+            Locale.setDefault(new Locale("eus", "ES"));
+        }else if (comboidiom.getValue() == "es") {
+            Locale.setDefault(new Locale("es", "ES"));
+        }else if (comboidiom.getValue() == "en") {
+            Locale.setDefault(new Locale("en", "EN"));
+        }
+    }
 
     @FXML
     void goreg(ActionEvent event) throws IOException {

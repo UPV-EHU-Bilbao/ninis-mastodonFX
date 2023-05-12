@@ -134,28 +134,6 @@ public class BigBone {
     public void postToot(String toot) throws BigBoneRequestException {
         client.statuses().postStatus(toot).execute();
     }
-    public File generateThumbnail(File sourceFile, int width, int height) throws IOException {
-
-        Image sourceImage = new Image(sourceFile.toURI().toString());
-        double sourceWidth = sourceImage.getWidth();
-        double sourceHeight = sourceImage.getHeight();
-
-        double scaleX = width / sourceWidth;
-        double scaleY = height / sourceHeight;
-        double scale = Math.min(scaleX, scaleY);
-
-        double targetWidth = scale * sourceWidth;
-        double targetHeight = scale * sourceHeight;
-
-        WritableImage thumbnail = new WritableImage((int)targetWidth, (int)targetHeight);
-        thumbnail.getPixelWriter().setPixels(0, 0, (int)targetWidth, (int)targetHeight,
-                sourceImage.getPixelReader(), 0, 0);
-
-
-        File destFile = new File("src/main/resources/images/thumbnail.png");
-        ImageIO.write(SwingFXUtils.fromFXImage(thumbnail, null), "png", destFile);
-        return destFile;
-    }
 
 
 

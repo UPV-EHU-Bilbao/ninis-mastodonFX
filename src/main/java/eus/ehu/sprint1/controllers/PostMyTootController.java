@@ -76,10 +76,10 @@ public class PostMyTootController {
            if (image.getImage()!=null){
 
                if (spoilertext.getText()!=null){
-                   bigBone.PostStatusWithMediaAttached(content.getText(), bigBone.getTOKEN(), bigBone.generateThumbnail(files, 200, 200), spoilertext.getText());
+                   bigBone.PostStatusWithMediaAttached(content.getText(), bigBone.getTOKEN(), files, spoilertext.getText());
                }
                 else {
-                     bigBone.PostStatusWithMediaAttached(content.getText(), bigBone.getTOKEN(), bigBone.generateThumbnail(files, 200, 200), "");
+                     bigBone.PostStatusWithMediaAttached(content.getText(), bigBone.getTOKEN(), files, "");
                 }
             }else {
 
@@ -106,27 +106,8 @@ public class PostMyTootController {
 
 
         image.setImage(new Image(files.toURI().toString()));
-        /*
-        if (file == null) {
-            try {
-                File seleccion = fileChooser.showOpenDialog(null);
-                if (seleccion.equals( JFileChooser.APPROVE_OPTION)) {
-                    // El usuario ha seleccionado un archivo
-                    FileChooser.ExtensionFilter archivo = fileChooser.getSelectedExtensionFilter();
-                }
-
-            } catch (IllegalArgumentException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Can't open file");
-                alert.setContentText("The file is not valid");
-                alert.showAndWait();
-            }
 
 
-        }
-
-         */
     }
     @FXML
     void sensitive(ActionEvent event) {

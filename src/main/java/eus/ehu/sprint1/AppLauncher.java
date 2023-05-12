@@ -24,7 +24,8 @@ public class AppLauncher extends Application {
     public void start(Stage stage) throws IOException {
         BlFacade bl = BlFacadeImplementation.getInstance();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"),ResourceBundle.getBundle("strings", new Locale("eus", "ES")));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"), ResourceBundle.getBundle("strings", Locale.getDefault()));
         fxmlLoader.setControllerFactory(c -> {
             if (c == LoginController.class) {
                 return new LoginController(bl);

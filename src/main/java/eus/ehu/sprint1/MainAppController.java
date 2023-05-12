@@ -27,6 +27,8 @@ public class MainAppController {
 
     private BlFacade bl;
 
+    private String Language;
+
     @FXML
     private ToggleButton theme;
 
@@ -116,7 +118,7 @@ public class MainAppController {
 
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"), ResourceBundle.getBundle("strings", new Locale("eus", "ES")));
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"),  ResourceBundle.getBundle("strings", Locale.getDefault()));
         fxmlLoader.setControllerFactory(c -> {
             if (c == LoginController.class) {
                 return new LoginController(bl);

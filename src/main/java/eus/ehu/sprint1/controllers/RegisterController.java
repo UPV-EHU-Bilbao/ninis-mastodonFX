@@ -60,7 +60,7 @@ public class RegisterController implements FxController {
             bl.register(usernameField.getText(), token.getText());
             window.getScene().getWindow().hide();
             //show main.fxml
-            FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"),ResourceBundle.getBundle("strings", new Locale("eus", "ES")));
+            FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("login.fxml"),ResourceBundle.getBundle("strings", Locale.getDefault()));
             fxmlLoader.setControllerFactory(c -> {
                 if (c == LoginController.class) {
                     return new LoginController(bl);
