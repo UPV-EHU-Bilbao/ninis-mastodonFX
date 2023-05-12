@@ -10,6 +10,7 @@ import eus.ehu.sprint1.AppLauncher;
 import eus.ehu.sprint1.MainAppController;
 import eus.ehu.sprint1.domain.BigBone;
 import eus.ehu.sprint1.businessLogic.BlFacade;
+import eus.ehu.sprint1.domain.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -114,15 +116,16 @@ public class LoginController {
     void initialize() {
         assert wrong != null : "fx:id=\"wrong\" was not injected: check your FXML file 'login.fxml'.";
         setUsernameCB();
-        if (!bl.getTheme()){
-            theme.setSelected(true);
-            theme.setText("Light Theme");
-        }
+
         String[] idiomas = {"eus", "es", "en"};
 
 
         comboidiom.getItems().addAll(idiomas);
         setLanguage();
+
+
+
+
     }
 
     public void setLanguage() {
