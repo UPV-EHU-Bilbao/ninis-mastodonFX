@@ -10,6 +10,7 @@ import eus.ehu.sprint1.AppLauncher;
 import eus.ehu.sprint1.MainAppController;
 import eus.ehu.sprint1.domain.BigBone;
 import eus.ehu.sprint1.businessLogic.BlFacade;
+import eus.ehu.sprint1.domain.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -123,6 +125,10 @@ public class LoginController {
 
         comboidiom.getItems().addAll(idiomas);
         setLanguage();
+
+
+
+
     }
 
     public void setLanguage() {
@@ -140,7 +146,7 @@ public class LoginController {
 
         window.getScene().getWindow().hide();
         //show main.fxml
-        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("register.fxml"), ResourceBundle.getBundle("strings", Locale.getDefault()));
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("register.fxml"),ResourceBundle.getBundle("strings", Locale.getDefault()));
         fxmlLoader.setControllerFactory(c -> {
             if (c == RegisterController.class) {
                 return new RegisterController(bl);
@@ -152,9 +158,7 @@ public class LoginController {
                 }
             }
         });
-
         Parent root = fxmlLoader.load();
-
         // Crear una nueva escena con la vista y establecerla en la ventana actual
         Scene scene = new Scene(root);
         if (!bl.getTheme()){
