@@ -98,6 +98,8 @@ Compulsory
       * Show toots
       * Show followers
       * Show Followings
+  
+  
 **Libraries used in all the project:**
 * Hibernate
 * JavaFx
