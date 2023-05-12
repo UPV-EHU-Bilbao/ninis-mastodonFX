@@ -24,6 +24,8 @@ This is a Mastodon project doing , a decentralized and open-source microblogging
 
 - Clone the Mastodon repository onto your server:
 https://github.com/UPV-EHU-Bilbao/ninis-mastodonFX.git
+
+-In order to acces DB, click on database and then enter username: sa and leave the password empty. Copy the db.sql query and run it on the H2 database.
 ## Project development
 - [1<sup>st</sup> Iteration](#1st-iteration-authentication-and-initial-use-cases)
 - [2<sup>nd</sup> Iteration](#2nd-iteration-migration-to-javafx-and-more-use-cases)
