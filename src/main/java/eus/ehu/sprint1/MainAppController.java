@@ -2,25 +2,33 @@ package eus.ehu.sprint1;
 
 import eus.ehu.sprint1.businessLogic.BlFacade;
 import eus.ehu.sprint1.controllers.LoginController;
+import eus.ehu.sprint1.controllers.PostMyTootController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.net.MalformedURLException;
 
 
 public class MainAppController {
 
     private Window followingWin, tootsWin, followersWin, postTootWin, profileWin;
 
+    private PostMyTootController postMyTootController;
+
     private BlFacade bl;
+
+    @FXML
+    private ToggleButton theme;
 
     public MainAppController(BlFacade bl) {
         this.bl = bl;
@@ -84,6 +92,11 @@ public class MainAppController {
 
         showScene("Toot");
 
+        if (!bl.getTheme()){
+            theme.setSelected(true);
+            theme.setText("Light Mode");
+        }
+
     }
 
     private void showScene(String scene) {
@@ -117,10 +130,28 @@ public class MainAppController {
         });
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
+        if(!bl.getTheme()){
+            scene.getStylesheets().add(bl.getDarkStyle().toURI().toURL().toExternalForm());
+        }
         Stage mainStage = new Stage();
         mainStage.setScene(scene);
         mainStage.show();
 
         currentStage.close();
+    }
+
+    @FXML
+    void themeChng(ActionEvent event) throws MalformedURLException {
+        if (theme.isSelected()){
+            theme.setText("Light Theme");
+            bl.setTheme(false);
+            mainWrapper.getStylesheets().add(bl.getDarkStyle().toURI().toURL().toExternalForm());
+            mainWrapper.getScene().getStylesheets().add(bl.getDarkStyle().toURL().toExternalForm());
+        } else {
+            theme.setText("Dark Theme");
+            bl.setTheme(true);
+            mainWrapper.getStylesheets().clear();
+            mainWrapper.getScene().getStylesheets().clear();
+        }
     }
 }

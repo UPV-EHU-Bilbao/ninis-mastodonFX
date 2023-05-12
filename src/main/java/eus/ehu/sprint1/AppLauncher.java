@@ -7,6 +7,8 @@ import eus.ehu.sprint1.controllers.LoginController;
 import eus.ehu.sprint1.domain.Utils;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -39,14 +41,10 @@ public class AppLauncher extends Application {
         stage.setScene(scene);
         stage.show();
 
-
     }
 
     public static void main(String[] args) {
         launch();
     }
-
-
-
 
 }

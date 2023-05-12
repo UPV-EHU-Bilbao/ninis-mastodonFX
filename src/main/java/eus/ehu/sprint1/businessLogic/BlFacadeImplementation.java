@@ -3,7 +3,9 @@ package eus.ehu.sprint1.businessLogic;
 import eus.ehu.sprint1.dataAccess.DbAccessManager;
 import eus.ehu.sprint1.domain.User;
 import eus.ehu.sprint1.configuration.Config;
+import javafx.collections.ObservableList;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -24,8 +26,11 @@ private static BlFacadeImplementation bl = new BlFacadeImplementation();
 public static BlFacadeImplementation getInstance() {
     return bl;
 }
+private boolean theme = true; //TRUE = LIGHT, FALSE = DARK
 
-
+File darkStyle = new File("src\\main\\resources\\eus\\ehu\\sprint1\\style.css");
+File lightStyle = new File("src\\main\\resources\\eus\\ehu\\sprint1\\lightstyle.css");
+    public void BlFacadeImplementation() {
 
 
     private BlFacadeImplementation() {
@@ -71,6 +76,7 @@ public static BlFacadeImplementation getInstance() {
         dbAccessManager.close();
         return name;
     }
+
     @Override
     public ArrayList<String> getAllUsernames() {
         dbAccessManager.open();
@@ -79,5 +85,20 @@ public static BlFacadeImplementation getInstance() {
         return usernames;
     }
 
+    public void setTheme(boolean theme){
+        this.theme = theme;
+    }
+
+    public boolean getTheme(){
+        return this.theme;
+    }
+
+    public File getDarkStyle() {
+        return darkStyle;
+    }
+
+    public File getLightStyle() {
+        return lightStyle;
+    }
 }
 

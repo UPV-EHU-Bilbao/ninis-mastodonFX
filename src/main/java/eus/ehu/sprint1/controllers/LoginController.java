@@ -1,6 +1,7 @@
 package eus.ehu.sprint1.controllers;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -16,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -32,6 +34,9 @@ public class LoginController {
 
     @FXML
     private URL location;
+
+    @FXML
+    private ToggleButton theme;
 
     @FXML
     private AnchorPane window;
@@ -71,9 +76,27 @@ public class LoginController {
 
         // Crear una nueva escena con la vista y establecerla en la ventana actual
         Scene scene = new Scene(root);
+        if (!bl.getTheme()){
+            scene.getStylesheets().add(bl.getDarkStyle().toURI().toURL().toExternalForm());
+        }
         Stage mainStage = new Stage();
         mainStage.setScene(scene);
         mainStage.show();
+        }
+    }
+
+    @FXML
+    void themeChng(ActionEvent event) throws MalformedURLException {
+        if (theme.isSelected()){
+            theme.setText("Light Theme");
+            bl.setTheme(false);
+            window.getStylesheets().clear();
+            window.getStylesheets().add(bl.getDarkStyle().toURI().toURL().toExternalForm());
+        } else {
+            theme.setText("Dark Theme");
+            bl.setTheme(true);
+            window.getStylesheets().clear();
+            window.getStylesheets().add(bl.getLightStyle().toURI().toURL().toExternalForm());
         }
     }
 
@@ -88,6 +111,10 @@ public class LoginController {
     void initialize() {
         assert wrong != null : "fx:id=\"wrong\" was not injected: check your FXML file 'login.fxml'.";
         setUsernameCB();
+        if (!bl.getTheme()){
+            theme.setSelected(true);
+            theme.setText("Light Theme");
+        }
         String[] idiomas = {"eus", "es", "en"};
 
         comboidiom.getItems().addAll(idiomas);
@@ -100,7 +127,7 @@ public class LoginController {
 
         window.getScene().getWindow().hide();
         //show main.fxml
-        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("register.fxml"), ResourceBundle.getBundle("strings", new Locale("eus", "ES")));
+        FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("register.fxml"));
         fxmlLoader.setControllerFactory(c -> {
             if (c == RegisterController.class) {
                 return new RegisterController(bl);
@@ -115,12 +142,12 @@ public class LoginController {
         Parent root = fxmlLoader.load();
         // Crear una nueva escena con la vista y establecerla en la ventana actual
         Scene scene = new Scene(root);
+        if (!bl.getTheme()){
+            scene.getStylesheets().add(bl.getDarkStyle().toURI().toURL().toExternalForm());
+        }
         Stage mainStage = new Stage();
         mainStage.setScene(scene);
         mainStage.show();
     }
-
-
-
 
 }

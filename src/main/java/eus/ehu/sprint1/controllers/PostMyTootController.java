@@ -138,6 +138,10 @@ public class PostMyTootController {
 
     }
 
+    public void changeSize(){
+        postbutton.setPrefHeight(53);
+    }
+
 
 
 }

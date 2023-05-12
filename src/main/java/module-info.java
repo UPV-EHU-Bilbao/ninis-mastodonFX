@@ -14,6 +14,7 @@ module eus.ehu.sprint1 {
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
     requires javafx.swing;
+    requires org.jsoup;
 
     exports eus.ehu.sprint1;
 

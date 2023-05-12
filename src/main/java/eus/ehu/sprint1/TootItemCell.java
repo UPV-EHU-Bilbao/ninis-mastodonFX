@@ -3,7 +3,6 @@ package eus.ehu.sprint1;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import eus.ehu.sprint1.HyperLinkRedirectListener;
 import eus.ehu.sprint1.domain.Toot;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,8 +12,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.web.WebView;
+import javafx.scene.text.TextFlow;
 import social.bigbone.api.exception.BigBoneRequestException;
+import org.jsoup.Jsoup;
 
 public class TootItemCell {
 
@@ -44,7 +44,7 @@ public class TootItemCell {
     private Label date = new Label();
 
     @FXML
-    private WebView tootText = new WebView();
+    private TextFlow tootText = new TextFlow();
 
     @FXML
     private Label username = new Label();
@@ -84,8 +84,11 @@ public class TootItemCell {
         this.toot = toot;
         date.setText(toot.getDate());
         username.setText(toot.getUsername());
-        tootText.getEngine().loadContent(toot.getTootText());
-        tootText.getEngine().getLoadWorker().stateProperty().addListener(new HyperLinkRedirectListener(tootText));
+        tootText.getChildren().add(new javafx.scene.text.Text(Jsoup.parse(toot.getTootText()).text()));
+        //add black borders to the tootText
+        tootText.setStyle("-fx-border-color: black;");
+        //add white background to the tootText
+        tootText.setStyle("-fx-background-color: white;");
         boost.setSelected(toot.isBoost());
         like.setSelected(toot.isLiked());
         image.setImage(new Image(toot.getAvatar()));
