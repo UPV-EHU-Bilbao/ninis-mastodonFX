@@ -65,14 +65,14 @@ With the proposed migration to BigBone, we have invested much of the time spent 
 Compulsory
 - [x] [Upgrade Domain Model and Event flows](https://github.com/UPV-EHU-Bilbao/ninis-mastodonFX/blob/main/docs/MastodonUML.mdj).
 - [x] Improve design of:
-      - Show toots
-      - Show followers
-      - Show Followings
+      * Show toots
+      * Show followers
+      * Show Followings
 - [x] Use cases:
-      - Register
-      - Login
-      - Post a toot
-      - Logout
+      * Register
+      * Login
+      * Post a toot
+      * Logout
 
 ---
 
@@ -81,7 +81,7 @@ Compulsory
 
 For this latest iteration, we have tried to improve the user experience adding a timeline and perfile GUIs.
 
-To do this, we have implemented dark mode, and the use case of perfile .
+To do this, we have implemented dark mode, the use case of perfile and now if you don't want to register you can go back to login scene .
 
 **List of tasks carried out during iteration:**
 
@@ -93,8 +93,11 @@ Compulsory
 - [x] Implements hibernate
 - [x] Implements change of language
 - [x] Use case of profile, where there are follwoing, followers and my toot
-- [x] Improve post my toot, now you can post image and text with spoiler mesage
-- [ ] 
+- [x] Improve post my toot, now you can post image and text with spoiler message
+- [x] Improve design of:
+      * Show toots
+      * Show followers
+      * Show Followings
  
 
 
