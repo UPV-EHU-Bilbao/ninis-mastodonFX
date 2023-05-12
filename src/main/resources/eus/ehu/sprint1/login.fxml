@@ -27,5 +27,7 @@
          </image>
       </ImageView>
       <ComboBox fx:id="usernameCB" layoutX="266.0" layoutY="147.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboidiom" layoutX="469.0" layoutY="25.0" prefHeight="26.0" prefWidth="105.0" promptText="%Language" />
    </children>
 </AnchorPane>
+
