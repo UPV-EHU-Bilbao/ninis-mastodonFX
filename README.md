@@ -60,45 +60,41 @@ Compulsory
  
 With the proposed migration to BigBone, we have invested much of the time spent on the project in changing the api call from [okhttp3](https://github.com/Stocard/okhttp/packages/491559) to [bigbone](https://github.com/andregasser/bigbone).
 
-The end user can now enjoy a UI decorated with a selective  and a wide range of new components that facilitate and improve navigation, as well as a set of new utilities and use cases for an optimal application experience.
-
 **List of tasks carried out during iteration:**
 
 Compulsory
-
-
-
-Optional/Extras
-
-
+- [x] [Upgrade Domain Model and Event flows](https://github.com/UPV-EHU-Bilbao/ninis-mastodonFX/blob/main/docs/MastodonUML.mdj).
+- [x] Improve design of:
+      - Show toots
+      - Show followers
+      - Show Followings
+- [x] Use cases:
+      - Register
+      - Login
+      - Post a toot
+      - Logout
 
 ---
 
 
-### 3<sup>rd</sup> Iteration. 
+### 3<sup>rd</sup> Iteration. Hibernation, resource bundles and more use cases
 
-For this latest iteration, we have tried to improve the user and administrator experience as much as possible.
+For this latest iteration, we have tried to improve the user experience adding a timeline and perfile GUIs.
 
-To do this, .
+To do this, we have implemented dark mode, and the use case of perfile .
 
 **List of tasks carried out during iteration:**
 
 Compulsory
-
-
-
-Optional/Extras
-- [x] Use cases (admin)
-
-
-
-
-- [x] Use cases (user)
-
-  
-  The user now enjoys a pleasant and easy-to-use interface, with a wide range of components and animations that will enhance the experience significantly. The overview offered by the main panel of the allows the user to know his/her track record in the application, the bets placed, the money won and even the fluctuations of his/her wallet over the last month.
-
-- [x] Redesign and UI creation
+- [x] [Upgrade Domain Model and Event flows](https://github.com/UPV-EHU-Bilbao/ninis-mastodonFX/blob/main/docs/MastodonUML.mdj).
+- [x] Select accounts
+- [x] Change to dark mode
+- [x] Implement timeline to show toots people I follow 
+- [x] Implements hibernate
+- [x] Implements change of language
+- [x] Use case of profile, where there are follwoing, followers and my toot
+- [x] Improve post my toot, now you can post image and text with spoiler mesage
+- [ ] 
  
 
 
