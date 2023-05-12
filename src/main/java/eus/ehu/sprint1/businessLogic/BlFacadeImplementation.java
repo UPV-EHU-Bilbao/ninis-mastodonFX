@@ -30,7 +30,7 @@ private boolean theme = true; //TRUE = LIGHT, FALSE = DARK
 
 File darkStyle = new File("src\\main\\resources\\eus\\ehu\\sprint1\\style.css");
 File lightStyle = new File("src\\main\\resources\\eus\\ehu\\sprint1\\lightstyle.css");
-    public void BlFacadeImplementation() {
+
 
 
     private BlFacadeImplementation() {
