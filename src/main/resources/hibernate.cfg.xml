@@ -13,6 +13,6 @@
 
         <property name="hibernate.physical_naming_strategy">org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl</property>
 
-        <mapping class="eus.ehu.sprint1.domain.User"/>
+        <mapping class="eus.ehu.domain.User"/>
     </session-factory>
 </hibernate-configuration>

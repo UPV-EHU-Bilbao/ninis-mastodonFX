@@ -16,12 +16,12 @@ module eus.ehu.sprint1 {
     requires javafx.swing;
     requires org.jsoup;
 
-    exports eus.ehu.sprint1;
+    exports eus.ehu;
 
-    opens eus.ehu.sprint1 to com.google.gson, javafx.fxml, org.hibernate.orm.core;
-    exports eus.ehu.sprint1.domain;
-    opens eus.ehu.sprint1.domain to com.google.gson, javafx.fxml, org.hibernate.orm.core;
-    exports eus.ehu.sprint1.controllers;
-    opens eus.ehu.sprint1.controllers to com.google.gson, javafx.fxml, org.hibernate.orm.core;
+    opens eus.ehu to com.google.gson, javafx.fxml, org.hibernate.orm.core;
+    exports eus.ehu.domain;
+    opens eus.ehu.domain to com.google.gson, javafx.fxml, org.hibernate.orm.core;
+    exports eus.ehu.controllers;
+    opens eus.ehu.controllers to com.google.gson, javafx.fxml, org.hibernate.orm.core;
 
 }

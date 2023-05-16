@@ -1,6 +1,6 @@
 <h1 align="center">Mastodon Project</h1>
 <div align="center">
-  <img width="200" src="src/main/resources/eus/ehu/sprint1/Mastodon_logotype_(simple)_new_hue.svg.png">
+  <img width="200" src="src/main/resources/eus/ehu/Mastodon_logotype_(simple)_new_hue.svg.png">
   <p align="center"><i>This application has been developed for the Software Engineering (SE) course.</i></p>
 </div>
 
