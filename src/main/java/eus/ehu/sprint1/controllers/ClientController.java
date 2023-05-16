@@ -35,12 +35,12 @@ public class ClientController {
 
     public void showList() throws BigBoneRequestException {
 
-        List<Status> tootList = bigBone.getToots();
+        //List<Status> tootList = bigBone.getToots();
         List<Status> timelineList = bigBone.getTimeline();
         List<Toot> toots = new ArrayList<>();
-        for (Status t : tootList) {
+        /*for (Status t : tootList) {
             toots.add(new Toot(t));
-        }
+        }*/
         for (Status t : timelineList) {
             toots.add(new Toot(t));
         }
