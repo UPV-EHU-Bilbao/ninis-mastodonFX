@@ -83,11 +83,11 @@ Compulsory
 ---
 
 
-### 3<sup>rd</sup> Iteration. Hibernation, resource bundles and more use cases
+### 3<sup>rd</sup> Iteration. Hibernate, resource bundles and more use cases
 
 For this latest iteration, we have tried to improve the user experience adding a timeline and perfile GUIs.
 
-To do this, we have implemented dark mode, the use case of perfile and now if you don't want to register you can go back to login scene .
+To do this, we have implemented dark mode, the use case of profile and now if you don't want to register you can go back to login scene .
 
 **List of tasks carried out during iteration:**
 
